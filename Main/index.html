@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="01_css/style.css">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        * {
+            margin: 0; 
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+        section ul {
+            display: flex;
+            justify-content: space-between;
+            /* width: 1300px; */
+            width: 950px;
+            margin: 20px auto;
+        }
+        section li {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color :#fff;
+            cursor: pointer;
+        }
+        li span {
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){});
+    </script>
+
+    <h1>PORTFOLIO</h1>
+    <section>
+        <ul>
+            <li onclick="location.href='../00_SeaSon/'">
+                <span>01</span>
+            </li>
+            <li onclick="location.href='../01_SanWi/'">
+                <span>02</span>
+            </li>
+            <li onclick="location.href='../02_Climate/'">
+                <span>03</span>
+            </li>
+            <!-- <li onclick="location.href='./03/'">
+                <span>04</span>
+            </li> -->
+        </ul>
+    </section>
+
+    <!-- JS -->
+    <script src="02_js/main.js"></script>
+</body>
+</html>
