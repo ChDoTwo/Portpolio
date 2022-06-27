@@ -1,0 +1,108 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* css reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+*::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ul, ol, li { list-style: none; }
+a { text-decoration: none; color: inherit; cursor: pointer; }
+html, body { position: relative; font-size: 10px; font-family: 'Noto Sans KR', sans-serif; }
+img { width: 100%; display: block; }
+
+
+/* 공통 */
+.content { padding: 10rem 0; }
+.inner { margin: 0 20rem; }
+.jua { font-family: 'Jua', sans-serif; }
+h1 { font-size: 4.4rem; }
+h2 { font-size: 4rem; letter-spacing: 1px; }
+p { font-size: 2.2rem; line-height: 2; }
+
+
+
+/* Header */
+#Header { position: fixed; left: 0; top: 0; z-index: 15; width: 100%; margin-top: 5rem; }
+#Header .inner { display: flex; justify-content: space-between; align-items: center; }
+#Header .inner a.logo { font: 400 3rem 'Ubuntu', sans-serif;; }
+#Header .inner ul li { display: inline-block; font-size: 3rem; margin-left: 2rem; }
+
+#Header:hover { background-color: rgba(0, 0, 0, 0.1); }
+
+
+/* introduce */
+#Introduce .inner { margin: 0 15rem; }
+#Introduce table { width: 100%; border-spacing: 5rem; }
+#Introduce table tr:first-child td:first-child { width: 50%; }
+#Introduce table tr:first-child td:last-child { width: 50%; padding: 10rem 0; }
+#Introduce table td { width: 25%; vertical-align: top; }
+#Introduce table td h1 { display: inline-block; }
+#Introduce table td h1::before,
+#Introduce table td h1::after { content: ''; display: block; width: 50%; height: 5px; margin: 10% 0; border-radius: 10px; background-color: #000; }
+
+
+/* greenpeace */
+#Greenpeace .pic { 
+    position: relative; width: 100%; height: 30rem; 
+    background-attachment: fixed; background-image: url('../00_image/section02_img_01.jpg'); background-size: cover; 
+}
+#Greenpeace .pic a { 
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); 
+    padding: 1.5rem 5rem; font-size: 3rem; border: 3px solid #000; transition: all 0.3s;
+}
+#Greenpeace .info { display: flex; justify-content: space-between; padding: 5%; }
+
+#Greenpeace .pic a:hover { background-color: rgba(0, 0, 0, 0.5); color: #fff; border: none; border-radius: 5px; }
+
+
+/* factor */
+#Factor { text-align: center; }
+#Factor .wrap { display: flex; justify-content: center; margin-top: 10rem; }
+#Factor .wrap .circle { position: relative; width: 500px; height: 500px; margin: 0 5rem; border-radius: 50%; color: #fff; overflow: hidden; }
+#Factor .wrap .circle:first-child { background-color: rgba(0, 0, 0, 0.4); }
+#Factor .wrap .circle:last-child { background-color: rgba(0, 0, 0, 0.6); }
+#Factor .wrap .circle .box { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 100%; }
+#Factor .wrap .circle h3 { width: 100%; border-bottom: 1px dotted #000; padding-bottom: 2rem; margin-bottom: 4rem; font: 400 3.6rem 'Jua', sans-serif; letter-spacing: 10px; }
+#Factor .wrap .circle p { margin-bottom: 2rem; }
+#Factor .wrap .circle p:last-child { margin: 0; }
+
+
+/* example */
+#Example { text-align: center; }
+#Example ul.tab_menu { margin: 5rem 0 4rem; }
+#Example ul.tab_menu li { display: inline-block; margin-right: 2rem; font-size: 2.2rem; cursor: pointer; }
+#Example ul.tab_menu li:last-child { margin-right: 0; }
+
+#Example .tab { position: relative; }
+#Example .tab .wrap { position: absolute; left: 0; top: 0; display: flex; justify-content: space-between; }
+#Example .tab .wrap .box { width: 30%; }
+#Example .tab .wrap .box .title { 
+    position: relative; z-index: 5; display: flex; justify-content: center; align-items: center; 
+    width: 80%; height: 10rem; margin: -4rem auto 0; border-radius: 5px; background-color: rgba(120, 120, 120, 0.8); color: #fff; 
+}
+#Example .tab .wrap .box .title h3 { font-size: 2.4rem; }
+#Example .tab .wrap .box p { margin-top: 5rem; font-size: 1.8rem; }
+
+/* Gallery */
+/* #Gallery .main_image {  }
+#Gallery .sub_image {  } */
+
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width: 980px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 640px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
+}
