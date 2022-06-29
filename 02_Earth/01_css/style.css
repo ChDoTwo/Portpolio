@@ -23,15 +23,17 @@ p { font-size: 2.2rem; line-height: 2; }
 
 
 /* Header */
-#Header { position: fixed; left: 0; top: 0; z-index: 15; width: 100%; margin-top: 5rem; }
+#Header { width: 100%; padding: 5rem 0; transition: all 0.4s; }
 #Header .inner { display: flex; justify-content: space-between; align-items: center; }
 #Header a.logo { font: 400 3rem 'Ubuntu', sans-serif; }
 .sns li { display: inline-block; font-size: 3rem; margin-left: 2rem; }
 
-#Header:hover { background-color: rgba(0, 0, 0, 0.1); }
+#Header:hover { background-color: rgba(0, 0, 0, 0.1); } /* header hover animation */
+#Header.Top_fixed { position: fixed; left: 0; top: 0; z-index: 15; padding: 0; }
 
 
 /* introduce */
+#Introduce { padding-top: 0; }
 #Introduce .inner { margin: 0 15rem; }
 #Introduce table { width: 100%; border-spacing: 5rem; }
 #Introduce table tr:first-child td:first-child { width: 50%; }
@@ -47,13 +49,14 @@ p { font-size: 2.2rem; line-height: 2; }
     position: relative; width: 100%; height: 30rem; 
     background-attachment: fixed; background-image: url('../00_image/section02_img_01.jpg'); background-size: cover; 
 }
+#Greenpeace .pic::after { content: ''; position: absolute; left: 0; top: 0; z-index: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); }
 #Greenpeace .pic a { 
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); 
-    padding: 1.5rem 5rem; font-size: 3rem; border: 3px solid #000; transition: all 0.3s;
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 5;
+    padding: 1.5rem 5rem; font-size: 3rem; border: 3px solid #fff; color: #fff; transition: all 0.3s;
 }
 #Greenpeace .info { display: flex; justify-content: space-between; padding: 5%; }
 
-#Greenpeace .pic a:hover { background-color: rgba(0, 0, 0, 0.5); color: #fff; border: none; border-radius: 5px; }
+#Greenpeace .pic a:hover { background-color: rgba(0, 0, 0, 0.5); border: none; border-radius: 5px; } /* greenpeace hover animation */
 
 
 /* factor */
@@ -75,7 +78,7 @@ p { font-size: 2.2rem; line-height: 2; }
 #Example ul.tab_menu li:last-child { margin-right: 0; }
 
 #Example .tab { position: relative; }
-#Example .tab .wrap { position: absolute; left: 0; top: 0; display: flex; justify-content: space-between; opacity: 0; transition: all 0.4s; }
+#Example .tab .wrap { position: absolute; left: 0; top: 0; display: flex; justify-content: space-between; transform: translateY(20px); opacity: 0; transition: all 0.4s; }
 #Example .tab .wrap .box { width: 30%; }
 #Example .tab .wrap .box .title { 
     position: relative; z-index: 5; display: flex; justify-content: center; align-items: center; 
@@ -84,11 +87,16 @@ p { font-size: 2.2rem; line-height: 2; }
 #Example .tab .wrap .box .title h3 { font-size: 2.4rem; }
 #Example .tab .wrap .box p { margin-top: 5rem; font-size: 1.8rem; }
 
-#Example .tab .wrap.show { position: static; opacity: 1; }
+#Example .tab .wrap.show { position: static; transform: translateY(0); opacity: 1; } /* Example animation */
 
 /* Gallery */
-/* #Gallery .main_image {  }
-#Gallery .sub_image {  } */
+#Gallery .main_image { width: 80%; margin: 10rem auto; }
+#Gallery .sub_image { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+#Gallery .sub_image .image_box { width: 19%; cursor: pointer; }
+#Gallery .sub_image .gallery_txt { width: 20%; }
+#Gallery .sub_image .gallery_txt h3 { position: relative; display: inline-block; font-size: 3.6rem; }
+#Gallery .sub_image .gallery_txt h3::before,
+#Gallery .sub_image .gallery_txt h3::after { content: ''; display: block; width: 50%; height: 5px; margin: 5% 0; border-radius: 10px; background-color: #000; }
 
 
 /* Footer */
