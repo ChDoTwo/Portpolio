@@ -1,6 +1,7 @@
 /* 새로 고침 or 첫 화면 가장 맨위 + 살짝 무빙 */
-$('html').animate({scrollTop:'0'},10);
-$('.content_area').addClass('on');
+$('html').animate({scrollTop:'0'},10,function(){
+    $('.content_area').addClass('on');
+});
 
 
 /* Header */
