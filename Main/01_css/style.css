@@ -7,44 +7,44 @@ ul, ol, li { list-style: none; }
 a { text-decoration: none; color: inherit; cursor: pointer; }
 html, body { font-size: 10px; background-color: #f0f0f0; }
 img { width: 100%; display: block; }
+table { border: 0; }
 
 /* 공통 */
+.content { width: 100%; margin-top: 5rem; color: #fff; text-align: center; transition: all 1s; }
 .inner { width: 80%; margin: 0 10%; }
-/* .footer { background-color: rgba(0, 0, 0, 0.8); transition: all 1.5s; } */
-p { font-size: 100rem; }
+/* position */
+.flex_center { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; }
+.po_center { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); }
+.po_X_center { position: absolute; left: 50%; transform: translateX(-50%); }
+.po_Y_center { position: absolute; top: 50%; transform: translateY(-50%); }
 
-/* header */
+
+/************** header */
 #header { width: 100%; height: 12rem; } 
-#header .nav { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; }
-#header .nav a.logo { margin: 0 4rem; font-size: 3.6rem; opacity: 1; }
+#header .nav a.logo { margin: 0 4rem; font-size: 3.6rem; }
 #header .nav li { position: relative; margin: 0 4rem; font-size: 2.4rem; opacity: 0.3; cursor: pointer; transition: all 0.3s; }
 #header .nav li::before { 
-    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0); display: block;
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.5) rotate(360deg); 
     width: 100px; height: 100px; border: 3px dotted rgba(0, 0, 0, 0.8); border-radius: 50%; opacity: 0; transition: all 0.3s;
 }
-
-#header.Top_fixed { position: fixed; left: 0; top: 0; z-index: 20; height: 6rem; transition: height 0.4s, background-color 0.4s, color 0s;  } /* z-index 20 */
+/* header Action Class */
+#header.Top_fixed { position: fixed; left: 0; top: 0; z-index: 10; height: 6rem; transition: height 0.4s, background-color 0.4s, color 0s;  }
 #header.Top_fixed:hover { height: 12rem; background-color: rgba(0, 0, 0, 0.5); color: #fff; }
 #header.Top_fixed .nav li::before { border-color: #fff; }
 #header .nav li.on, #header .nav li:hover { opacity: 1; }
-#header .nav li:hover::before { opacity: 1; transform: translate(-50%,-50%) scale(1.2); }
+#header .nav li:hover::before { opacity: 1; transform: translate(-50%,-50%) scale(1.2) rotate(0deg); }
 
 
-/* portpolio */
-#portpolio { margin-top: 5rem; }
-#portpolio table { border-spacing: 5rem; border: 0; color: #fff; }
+/************** portpolio */
+#portpolio table { border-spacing: 5rem; }
 #portpolio table tr td { width: 25%; height: 30rem; cursor: pointer; }
-#portpolio table tr td .info { 
-    display: flex; flex-direction: column; align-items: center; justify-content: center; 
-    width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); opacity: 0; transition: all 0.3s; 
-}
+#portpolio table tr td .info { flex-direction: column; background-color: rgba(0, 0, 0, 0.8); opacity: 0; transition: all 0.3s; }
 #portpolio table tr td .info h2 { font-size: 3.6rem; }
 #portpolio table tr td .info p { font-size: 1.8rem; margin-top: 2rem; }
-
+/* portpolio Action Class */
 #portpolio table tr td.ready_page .info { opacity: 1; }
 #portpolio table tr td.ready_page:hover .info { opacity: 0.5; }
 #portpolio table tr td:hover .info { opacity: 1; }
-
 /* portpolio bg */
 #portpolio table tr td { background-repeat: no-repeat; background-size: cover; background-position: top center; background-color: rgba(0, 0, 0, 0.5); }
 #portpolio table tr:nth-child(1) > td:nth-child(1) { background-image: url('../00_image/portpolio_img_01.jpg'); }
@@ -52,13 +52,26 @@ p { font-size: 100rem; }
 #portpolio table tr:nth-child(1) > td:nth-child(3) { background-image: url('../00_image/portpolio_img_03.jpg'); }
 
 
+/************** Call */
+#call { position: fixed; left: 0; bottom: 0; z-index: 10; height: 0; background-color: rgba(0, 0, 0, 0.8); overflow: hidden; }
+#call .close_btn { top: 0; font-size: 4rem; cursor: pointer; }
+#call table { margin: 0 auto; height: 130%; opacity: 0; }
+#call table td a { margin: 0 5rem; font-size: 5rem; transition: all 0.3s; }
+#call table td:nth-child(1) a:hover { color: #000; }
+#call table td:nth-child(2) a:hover { color: #f9e000; }
+#call table td:nth-child(3) a:hover { color: #304ffe; }
+#call table td:nth-child(4) a:hover { color: rgba(255, 255, 255, 0.2); }
+
+
 /* 반응형 */
 @media screen and (max-width: 1200px) {
+    html, body { font-size: 9px; }
 
 }
 
 @media screen and (max-width: 980px) {
 
+    #header .nav li::before { display: none; }
 }
 
 @media screen and (max-width: 768px) {
