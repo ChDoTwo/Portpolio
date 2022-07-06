@@ -1,7 +1,7 @@
 /* 새로 고침 or 첫 화면 가장 맨위 + 살짝 무빙 */
-$('html').animate({scrollTop:'0'},10,function(){
-    $('.content_area').addClass('on');
-});
+// $('html').animate({scrollTop:'0'},10,function(){
+//     $('.content_area').addClass('on');
+// });
 
 /* Header */
 $(window).on('scroll',function(){
@@ -12,10 +12,15 @@ $(window).on('scroll',function(){
     }
 });
 
-/* nav click */
-class_opt('.nav li',2,'on'); // 첫 nav click 설정
-var last_li = false; // Call 클릭 여부
+/* logo click */
+var last_li = false; // Call Menu 클릭 여부 확인 변수
+$('.logo').click(function(){
+    reset_opt(); // 첫 상태로 reset
+    $('html').animate({scrollTop:'0'},400); // 맨 위로 이동
+});
 
+/* nav click */
+reset_opt();
 $('.nav').on('click','li',function(){
     var li_i = $(this).index();
 
@@ -34,7 +39,7 @@ $('.nav').on('click','li',function(){
     }
 });
 
-/* call close_btn */
+/* call close_btn click */
 $('#call .close_btn').click(function(){
     $('.nav li').eq(3).removeClass('on');
     last_li = false;
@@ -42,6 +47,15 @@ $('#call .close_btn').click(function(){
         $('#call').children('table').animate({opacity:'0'},400);
     });
 });
+
+/* reset */
+function reset_opt(){ // 첫 상태
+    class_opt('.nav li',2,'on'); // 첫 nav click 설정
+    last_li = false; // Call menu 클릭x
+    $('#call').animate({height:'0'},400,function(){
+        $('#call').children('table').animate({opacity:'0'},400);
+    });
+}
 
 /* Remove Add class */
 function class_opt(name, index, class_n){
