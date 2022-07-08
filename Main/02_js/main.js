@@ -39,6 +39,17 @@ $('.nav').on('click','li',function(){
     }
 });
 
+/* skill */
+var percent = []; // percent 값 배열 선언
+var percent_color = ['#ff8a00','#003cff','#00ff66','#009cff']; // td percent color 색상 배열 선언
+var skill_td = $('#skill table tr').eq(0).children('td'); // pie td 구역
+
+for(var i = 0; i < skill_td.length; i++){ 
+    percent.push(skill_td.eq(i).children('.percent').data('per')); // td data-per 값 추출하여 percent 배열에 push
+    draw(percent[i], i, percent_color[i]);
+}
+
+
 /* call close_btn click */
 $('#call .close_btn').click(function(){
     $('.nav li').eq(3).removeClass('on');
@@ -47,6 +58,29 @@ $('#call .close_btn').click(function(){
         $('#call').children('table').animate({opacity:'0'},400);
     });
 });
+
+/* skill pie draw */
+function draw(max, td_n, color_n){
+    var i = 1;
+    var set_i = setInterval(function(){
+        if(i<=max){     
+            skill_td.eq(td_n).css('background','conic-gradient('+color_n+' 0% '+i+'%, rgba(0,0,0,0.1) '+i+'% 100%)'); // 원 채우기
+            skill_td.eq(td_n).children('.percent').text(i +'%'); // percent text 값 증가
+            i++;
+        }else {
+            clearInterval(set_i);
+        }
+    },20);
+}
+
+/* 정사각형 설정 */
+function square_opt(name){
+    var name_w = $(name).width();
+    $(name).height(name_w);
+}
+
+square_opt('#portpolio table td') // portpolio td 정사각형 설정
+square_opt('#skill table tr:first-child td') // skill td 정사각형 설정
 
 /* reset */
 function reset_opt(){ // 첫 상태
