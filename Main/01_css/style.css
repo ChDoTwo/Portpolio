@@ -31,12 +31,11 @@ table td { position: relative; width: 25%; }
 #header .nav li { position: relative; margin: 0 4rem; font-size: 2.4rem; opacity: 0.3; cursor: pointer; transition: all 0.3s; }
 #header .nav li::before { 
     content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.5) rotate(360deg); 
-    width: 90px; height: 90px; border: 3px dotted rgba(0, 0, 0, 0.8); border-radius: 50%; opacity: 0; transition: all 0.3s;
+    width: 90px; height: 90px; border: 3px dotted #fff; border-radius: 50%; opacity: 0; transition: all 0.3s;
 }
 /* header Action Class */
 #header.trans_h { height: 6rem; transition: height 0.4s, background-color 0.4s, color 0s; color: #000; }
 #header.trans_h:hover { height: 12rem; background-color: rgba(0, 0, 0, 0.5); color: #fff; }
-#header.trans_h .nav li::before { border-color: #fff; }
 #header .nav li.on, #header .nav li:hover { opacity: 1; }
 #header .nav li:hover::before { opacity: 1; transform: translate(-50%,-50%) scale(1.2) rotate(0deg); }
 
@@ -84,8 +83,8 @@ table td { position: relative; width: 25%; }
 /************** Call */
 #Call { position: fixed; left: 0; bottom: 0; z-index: 10; height: 0; margin: 0; background-color: rgba(0, 0, 0, 0.8); }
 #Call .close_btn { top: 0; z-index: 15; font-size: 4rem; cursor: pointer; transition: all 0.6s; }
-#Call table { border-spacing: 0; height: 120%; opacity: 0; }
-#Call table td a { margin: 0 5rem; font-size: 5rem; transition: all 0.3s; }
+#Call table { border-spacing: 5rem; height: 120%; }
+#Call table td a { font-size: 5rem; transition: all 0.3s; }
 /* call Hover */
 #Call .close_btn:hover { transform: translate(-50%,20%); }
 #Call table td:nth-child(1) a:hover { color: #000; }
@@ -98,21 +97,140 @@ table td { position: relative; width: 25%; }
 @media screen and (max-width: 1200px) {
     html, body { font-size: 9px; }
 
+    /* 공통 */
+    .content { margin-bottom: 20rem; }
+    .inner { width: 80%; margin: 0 10%; }
+    h2.sub_title { font-size: 3.2rem; }
+    p.tag_txt { font-size: 1.6rem  }
+    table { border-spacing: 2rem; }
+
+    /************** header */
+    #header { height: 10rem; } 
+    #header .nav .logo { margin: 0 4rem; font-size: 4.2rem; }
+    #header .nav li { margin: 0 4rem; font-size: 2.4rem; }
+    #header .nav li::before { width: 75px; height: 75px; border: 3px dotted #fff; }
+    #header.trans_h { height: 6rem; }
+    #header.trans_h:hover { height: 10rem; }
+
+    /************** Home */
+    #Home .box h1 { font-size: 6rem; }
+
+    /************** Skill */
+    #Skill::before, #Skill::after { width: 200px; height: 200px; }
+    #Skill table { width: 70%; }
+    #Skill table tr td { font-size: 2.2rem; }
+
+    /************** portpolio */
+    #Portpolio table { width: 90%; margin: 0 5%; }
+    #Portpolio table tr td .info { background-color: rgba(0, 0, 0, 0); color: #000; opacity: 1; }
+    #Portpolio table tr td p { transform: translateY(100%); opacity: 1; }
+    #Portpolio table tr td:hover .info { background-color: rgba(0, 0, 0, 0.5); color: #fff; }
+
+    /************** Call */
+    #Call .close_btn { font-size: 4rem; }
+    #Call table { border-spacing: 10rem 0; height: 120%; }
+    #Call table td a { font-size: 5rem; }
+
 }
 
 @media screen and (max-width: 980px) {
+    html, body { font-size: 8px; }
 
-    #header .nav li::before { display: none; }
+    /* 공통 */
+    .inner { width: 80%; margin: 0 10%; }
+    h2.sub_title { font-size: 3.2rem; }
+    p.tag_txt { font-size: 1.6rem  }
+    table { border-spacing: 2rem; }
+
+    /************** header */
+    #header .nav li::before { width: 70px; height: 70px; border: 3px dotted #fff; }
+
+    /************** Skill */
+    #Skill::before, #Skill::after { width: 160px; height: 160px; }
+    #Skill table { width: 80%; }
+    #Skill table tr td { font-size: 2.4rem; }
+
+    /************** portpolio */
+    #Portpolio table { width: 100%; margin: 0; }
 }
 
 @media screen and (max-width: 768px) {
+    html, body { font-size: 7px; }
 
+    /* 공통 */
+    .content { margin-bottom: 25rem; }
+
+    /************** header */
+    #header .nav .logo { margin: 0 3rem; font-size: 5rem; }
+    #header .nav li { margin: 0 3rem; font-size: 3rem; }
+    #header .nav li::before { display: none; }
+
+    /************** Skill */
+    #Skill::before, #Skill::after { width: 100px; height: 100px; }
+    #Skill table { width: 80%; }
+    #Skill table tr td { font-size: 2.2rem; }
+
+    /************** portpolio */
+    #Portpolio table { border-spacing: 4rem; }
+    #Portpolio table tbody { display: block; width: 100%; }
+    #Portpolio table tbody tr { width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    #Portpolio table tbody tr td { width: calc(50% - 4rem); }
+    #Portpolio table tbody tr td:nth-child(1), #Portpolio table tbody tr td:nth-child(2) { margin-bottom: 4rem; }
 }
 
 @media screen and (max-width: 640px) {
+    html, body { font-size: 6px; }
 
+
+    /* 공통 */
+    .content { margin-bottom: 25rem; }
+    .inner { width: 90%; margin: 0 5%; }
+    h2.sub_title { font-size: 4rem; }
+    p.tag_txt { font-size: 2rem  }
+
+    /************** header */
+    #header .nav .logo { margin: 0 3rem; font-size: 4rem; }
+    #header .nav li { margin: 0 3rem; font-size: 3.2rem; }
+
+    /************** Home */
+    #Home .box h1 { font-size: 7rem; }
+
+    /************** Skill */
+    #Skill table { width: 80%; }
+    #Skill table tr td { font-size: 2.4rem; }
+
+    /************** portpolio */
+    #Portpolio table { border-spacing: 4rem; }
+    #Portpolio table tbody tr td { width: calc(50% - 2rem); }
+    #Portpolio table tbody tr td:nth-child(1), #Portpolio table tbody tr td:nth-child(2) { margin-bottom: 8rem; }
+
+    /************** Call */
+    #Call table td a { font-size: 6.4rem; }
 }
 
 @media screen and (max-width: 480px) {
+    html, body { font-size: 5.5px; }
 
+    /* 공통 */
+    .inner { width: 100%; margin: 0; }
+    h2.sub_title { font-size: 5rem; }
+    p.tag_txt { font-size: 3rem; }
+
+    /************** header */
+    #header .nav .logo { position: absolute; top: 0; margin: 0; font-size: 5rem; }
+    #header .nav li { margin: 15rem 4rem 0; font-size: 3.2rem; }
+    #header.trans_h { height: 10rem; }
+
+    /************** Skill */
+    #Skill::before, #Skill::after { display: none; }
+    #Skill table { width: 100%; }
+    #Skill table tr td { font-size: 3rem; }
+
+    /************** portpolio */
+    #Portpolio table { border-spacing: 2rem; }
+    #Portpolio table tbody { display: block; width: 100%; }
+    #Portpolio table tbody tr { width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    #Portpolio table tbody tr td { width: 100%; margin-bottom: 20rem; }
+    #Portpolio table tbody tr td p { transform: translateY(200%); }
+    #Portpolio table tbody tr td:nth-child(1), #Portpolio table tbody tr td:nth-child(2) { margin-bottom: 20rem; }
 }

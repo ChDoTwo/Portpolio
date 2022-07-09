@@ -2,12 +2,16 @@
 var win_w = $(window).innerWidth();
 var win_h = $(window).innerHeight(); // window height
 var header_h = $('#header').height();
+var home_h = $('#Home').height();
+
+square_opt('#Portpolio table td') // portpolio td 정사각형 설정
+square_opt('#Skill table tr:first-child td') // skill td 정사각형 설정
 
 /* Header */
 $(window).on('scroll',function(){
     var win_t = $(window).scrollTop(); // window scroll 위치
 
-    if(win_t <= $('#Home').height()){
+    if(win_t <= (home_h - header_h)){
         $('#header').removeClass('trans_h');
     }else {
         $('#header').addClass('trans_h');
@@ -84,9 +88,6 @@ function square_opt(name){
     var name_w = $(name).width();
     $(name).height(name_w);
 }
-
-square_opt('#Portpolio table td') // portpolio td 정사각형 설정
-square_opt('#Skill table tr:first-child td') // skill td 정사각형 설정
 
 /* reset */
 function reset_opt(){ // 첫 상태
