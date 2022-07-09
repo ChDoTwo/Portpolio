@@ -1,19 +1,21 @@
 /* 새로 고침 or 첫 화면 가장 맨위 + 살짝 무빙 */
-// $('html').animate({scrollTop:'0'},10,function(){
-//     $('.content_area').addClass('on');
-// });
+var win_w = $(window).innerWidth();
+var win_h = $(window).innerHeight(); // window height
+var header_h = $('#header').height();
 
 /* Header */
 $(window).on('scroll',function(){
-    if($(window).scrollTop() == 0){
-        $('#header').removeClass('Top_fixed');
+    var win_t = $(window).scrollTop(); // window scroll 위치
+
+    if(win_t <= $('#Home').height()){
+        $('#header').removeClass('trans_h');
     }else {
-        $('#header').addClass('Top_fixed');
+        $('#header').addClass('trans_h');
     }
 });
 
 /* logo click */
-var last_li = false; // Call Menu 클릭 여부 확인 변수
+var call_li = false; // Call Menu 클릭 여부 확인 변수
 $('.logo').click(function(){
     reset_opt(); // 첫 상태로 reset
     $('html').animate({scrollTop:'0'},400); // 맨 위로 이동
@@ -23,26 +25,30 @@ $('.logo').click(function(){
 reset_opt();
 $('.nav').on('click','li',function(){
     var li_i = $(this).index();
+    var toContent_t = $('#'+$(this).text()).offset().top; // 선택한 li content 상위 포인트
+    var toContent_h = $('#'+$(this).text()).height(); // 선택한 li content 높이
 
     if(li_i == 4){ // call click
-        $('#call').animate({height:'15rem'},400,function(){
-            $('#call').children('table').animate({opacity:'1'},400);
+        $('#Call').animate({height:'15rem'},400,function(){
+            $('#Call').children('table').animate({opacity:'1'},400);
         });
         $(this).addClass('on');
-        last_li = true;
-    }else if(last_li == true) { // Call이 click이 되어있다면
+        call_li = true;
+    }else if(call_li == true) { // Call이 click이 되어 있다면
         class_opt('.nav li',3,'on'); // li event ( Call li는 꺼지지 않게 설정 )
         $(this).addClass('on');
-    }else if(last_li == false){
+        $('html').animate({scrollTop:((toContent_t + win_h) - (toContent_h + win_h))},500);
+    }else if(call_li == false){ // Call이 click이 안 되어 있다면
         $('.nav li').removeClass('on'); // li event (li 다 꺼지게 설정)
         $(this).addClass('on');
+        $('html').animate({scrollTop:((toContent_t + win_h) - (toContent_h + win_h))},500);
     }
 });
 
 /* skill */
 var percent = []; // percent 값 배열 선언
 var percent_color = ['#ff8a00','#003cff','#00ff66','#009cff']; // td percent color 색상 배열 선언
-var skill_td = $('#skill table tr').eq(0).children('td'); // pie td 구역
+var skill_td = $('#Skill table tr').eq(0).children('td'); // pie td 구역
 
 for(var i = 0; i < skill_td.length; i++){ 
     percent.push(skill_td.eq(i).children('.percent').data('per')); // td data-per 값 추출하여 percent 배열에 push
@@ -51,11 +57,11 @@ for(var i = 0; i < skill_td.length; i++){
 
 
 /* call close_btn click */
-$('#call .close_btn').click(function(){
+$('#Call .close_btn').click(function(){
     $('.nav li').eq(3).removeClass('on');
-    last_li = false;
-    $('#call').animate({height:'0'},400,function(){
-        $('#call').children('table').animate({opacity:'0'},400);
+    call_li = false;
+    $('#Call').animate({height:'0'},400,function(){
+        $('#Call').children('table').animate({opacity:'0'},400);
     });
 });
 
@@ -79,15 +85,15 @@ function square_opt(name){
     $(name).height(name_w);
 }
 
-square_opt('#portpolio table td') // portpolio td 정사각형 설정
-square_opt('#skill table tr:first-child td') // skill td 정사각형 설정
+square_opt('#Portpolio table td') // portpolio td 정사각형 설정
+square_opt('#Skill table tr:first-child td') // skill td 정사각형 설정
 
 /* reset */
 function reset_opt(){ // 첫 상태
-    class_opt('.nav li',2,'on'); // 첫 nav click 설정
-    last_li = false; // Call menu 클릭x
-    $('#call').animate({height:'0'},400,function(){
-        $('#call').children('table').animate({opacity:'0'},400);
+    class_opt('.nav li',0,'on'); // 첫 nav click 설정
+    call_li = false; // Call menu 클릭x
+    $('#Call').animate({height:'0'},400,function(){
+        $('#Call').children('table').animate({opacity:'0'},400);
     });
 }
 

@@ -11,15 +11,13 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 html, body { font-size: 10px; font-family: 'Roboto', sans-serif; background-color: #f0f0f0; text-align: center; }
 
 /* 공통 */
-.content { width: 100%; margin-bottom: 20rem; color: #fff; transition: all 1s; overflow: hidden; }
+.content { position: relative; width: 100%; margin-bottom: 25rem; color: #fff; }
 .inner { width: 70%; height: 100%; margin: 0 15%; }
 h2.sub_title { font: 700 3.6rem 'Roboto'; }
 p.tag_txt { font: 400 1.8rem 'Noto Sans KR'; color: #000; transition: all 0.5s; }
 img { width: 100%; display: block; }
 table { border: 0; border-spacing: 3rem; margin: 0 auto; }
 table td { position: relative; width: 25%; }
-
-
 /* position */
 .flex_center { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; }
 .po_center { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); }
@@ -28,7 +26,7 @@ table td { position: relative; width: 25%; }
 
 
 /************** header */
-#header { width: 100%; height: 12rem; } 
+#header { position: fixed; left: 0; top: 0; z-index: 15; width: 100%; height: 12rem; color: #fff; } 
 #header .nav .logo { margin: 0 4rem; font: 600 4.4rem 'EB Garamond'; font-weight: 400; cursor: pointer; }
 #header .nav li { position: relative; margin: 0 4rem; font-size: 2.4rem; opacity: 0.3; cursor: pointer; transition: all 0.3s; }
 #header .nav li::before { 
@@ -36,58 +34,64 @@ table td { position: relative; width: 25%; }
     width: 90px; height: 90px; border: 3px dotted rgba(0, 0, 0, 0.8); border-radius: 50%; opacity: 0; transition: all 0.3s;
 }
 /* header Action Class */
-#header.Top_fixed { position: fixed; left: 0; top: 0; z-index: 10; height: 6rem; transition: height 0.4s, background-color 0.4s, color 0s;  }
-#header.Top_fixed:hover { height: 12rem; background-color: rgba(0, 0, 0, 0.5); color: #fff; }
-#header.Top_fixed .nav li::before { border-color: #fff; }
+#header.trans_h { height: 6rem; transition: height 0.4s, background-color 0.4s, color 0s; color: #000; }
+#header.trans_h:hover { height: 12rem; background-color: rgba(0, 0, 0, 0.5); color: #fff; }
+#header.trans_h .nav li::before { border-color: #fff; }
 #header .nav li.on, #header .nav li:hover { opacity: 1; }
 #header .nav li:hover::before { opacity: 1; transform: translate(-50%,-50%) scale(1.2) rotate(0deg); }
 
 
+/************** Home */
+#Home { height: 100vh; background: no-repeat url('../00_image/home_img_01.jpg') center center; background-size: cover; }
+#Home::after { content: ''; position: absolute; left: 0; top: 0; z-index: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
+#Home .box { position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 5; width: 100%; text-align: center; }
+#Home .box h1 { font: 700 6rem 'Noto Sans KR'; }
+
 /************** Skill */
-#skill { position: relative; background-color: #97d0ed; }
-#skill::before, #skill::after { 
+#Skill { background-color: #97d0ed; overflow: hidden; }
+#Skill::before, #Skill::after { 
     content: ''; position: absolute; top: 50%; transform-origin: center; 
     width: 200px; height: 200px; background-color: rgba(255, 255, 255, 0.5); transition: all 0.4s;
 }
-#skill::before { left: 0; transform: translate(-50%,-50%) rotate(45deg); }
-#skill::after { right: 0; transform: translate(50%,-50%) rotate(-45deg); }
+#Skill::before { left: 0; transform: translate(-50%,-50%) rotate(45deg); }
+#Skill::after { right: 0; transform: translate(50%,-50%) rotate(-45deg); }
 /* skill table */
-#skill table { width: 60%; height: 100%; }
-#skill table tr td { font-size: 2.2rem; }
-#skill table tr:nth-child(1) td { border-radius: 50%; color: #000; }
-#skill table tr:nth-child(1) td p.percent { 
+#Skill table { width: 60%; height: 100%; }
+#Skill table tr td { font-size: 2.2rem; }
+#Skill table tr:nth-child(1) td { border-radius: 50%; color: #000; }
+#Skill table tr:nth-child(1) td p.percent { 
     position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); 
     display: flex; justify-content: center; align-items: center; width: 80%; height: 80%; border-radius: inherit; background-color: #97d0ed; 
 }
 
 
 /************** portpolio */
-#portpolio table tr td { background-repeat: no-repeat; background-size: cover; background-position: top center; background-color: rgba(0, 0, 0, 0.5); cursor: pointer; }
-#portpolio table tr td .info { background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: all 0.3s; }
-#portpolio table tr td.ready_page .info { opacity: 1; }
-#portpolio table tr td.ready_page .info h2 { font-family: 'Noto Sans KR', sans-serif; }
-#portpolio table tr td p { position: absolute; bottom: 0; transform: translateY(0); width: 100%; opacity: 0; transition-timing-function: ease-out; }
+#Portpolio table tr td { background-repeat: no-repeat; background-size: cover; background-position: top center; background-color: rgba(0, 0, 0, 0.5); cursor: pointer; }
+#Portpolio table tr td .info { background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: all 0.3s; }
+#Portpolio table tr td.ready_page .info { opacity: 1; }
+#Portpolio table tr td.ready_page .info h2 { font-family: 'Noto Sans KR', sans-serif; }
+#Portpolio table tr td p { position: absolute; bottom: 0; transform: translateY(0); width: 100%; opacity: 0; transition-timing-function: ease-out; }
 /* portpolio Action Class */
-#portpolio table tr td:hover .info { opacity: 1; }
-#portpolio table tr td.ready_page:hover .info { opacity: 0.5; }
-#portpolio table tr td:hover p { transform: translateY(100%); opacity: 1; }
+#Portpolio table tr td:hover .info { opacity: 1; }
+#Portpolio table tr td.ready_page:hover .info { opacity: 0.5; }
+#Portpolio table tr td:hover p { transform: translateY(100%); opacity: 1; }
 /* portpolio bg */
-#portpolio table tr:nth-child(1) > td:nth-child(1) { background-image: url('../00_image/portpolio_img_01.jpg'); }
-#portpolio table tr:nth-child(1) > td:nth-child(2) { background-image: url('../00_image/portpolio_img_02.jpg'); }
-#portpolio table tr:nth-child(1) > td:nth-child(3) { background-image: url('../00_image/portpolio_img_03.jpg'); }
+#Portpolio table tr:nth-child(1) > td:nth-child(1) { background-image: url('../00_image/portpolio_img_01.jpg'); }
+#Portpolio table tr:nth-child(1) > td:nth-child(2) { background-image: url('../00_image/portpolio_img_02.jpg'); }
+#Portpolio table tr:nth-child(1) > td:nth-child(3) { background-image: url('../00_image/portpolio_img_03.jpg'); }
 
 
 /************** Call */
-#call { position: fixed; left: 0; bottom: 0; z-index: 10; height: 0; margin-bottom: 0; background-color: rgba(0, 0, 0, 0.8); }
-#call .close_btn { top: 0; z-index: 15; font-size: 4rem; cursor: pointer; transition: all 0.6s; }
-#call table { border-spacing: 0; height: 120%; opacity: 0; }
-#call table td a { margin: 0 5rem; font-size: 5rem; transition: all 0.3s; }
+#Call { position: fixed; left: 0; bottom: 0; z-index: 10; height: 0; margin: 0; background-color: rgba(0, 0, 0, 0.8); }
+#Call .close_btn { top: 0; z-index: 15; font-size: 4rem; cursor: pointer; transition: all 0.6s; }
+#Call table { border-spacing: 0; height: 120%; opacity: 0; }
+#Call table td a { margin: 0 5rem; font-size: 5rem; transition: all 0.3s; }
 /* call Hover */
-#call .close_btn:hover { transform: translate(-50%,20%); }
-#call table td:nth-child(1) a:hover { color: #000; }
-#call table td:nth-child(2) a:hover { color: #f9e000; }
-#call table td:nth-child(3) a:hover { color: #304ffe; }
-#call table td:nth-child(4) a:hover { color: rgba(255, 255, 255, 0.2); }
+#Call .close_btn:hover { transform: translate(-50%,20%); }
+#Call table td:nth-child(1) a:hover { color: #000; }
+#Call table td:nth-child(2) a:hover { color: #f9e000; }
+#Call table td:nth-child(3) a:hover { color: #304ffe; }
+#Call table td:nth-child(4) a:hover { color: rgba(255, 255, 255, 0.2); }
 
 
 /* 반응형 */
