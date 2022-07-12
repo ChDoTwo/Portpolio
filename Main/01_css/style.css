@@ -14,6 +14,8 @@ html, body { font-size: 10px; font-family: 'Roboto', sans-serif; background-colo
 .content { position: relative; width: 100%; margin-bottom: 25rem; color: #fff; }
 .inner { width: 70%; height: 100%; margin: 0 15%; }
 h2.sub_title { font: 700 3.6rem 'Roboto'; }
+h2.title { margin-bottom: 10rem; font: 700 6rem 'Roboto'; letter-spacing: 3px; }
+h2.title::before, h2.title::after { content: 'ㅡ'; }
 p.tag_txt { font: 400 1.8rem 'Noto Sans KR'; color: #000; transition: all 0.5s; }
 img { width: 100%; display: block; }
 table { border: 0; border-spacing: 3rem; margin: 0 auto; }
@@ -65,6 +67,7 @@ table td { position: relative; width: 25%; }
 
 
 /************** portpolio */
+#Portpolio h2.title { color: #000; }
 #Portpolio table tr td { background-repeat: no-repeat; background-size: cover; background-position: top center; background-color: rgba(0, 0, 0, 0.5); cursor: pointer; }
 #Portpolio table tr td .info { background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: all 0.3s; }
 #Portpolio table tr td.ready_page .info { opacity: 1; }
@@ -122,14 +125,9 @@ table td { position: relative; width: 25%; }
 
     /************** portpolio */
     #Portpolio table { width: 90%; margin: 0 5%; }
-    #Portpolio table tr td .info { background-color: rgba(0, 0, 0, 0); color: #000; opacity: 1; }
+    #Portpolio table tr td .info { background-color: rgba(0, 0, 0, 0.5); color: #fff; opacity: 1; }
     #Portpolio table tr td p { transform: translateY(100%); opacity: 1; }
-    #Portpolio table tr td:hover .info { background-color: rgba(0, 0, 0, 0.5); color: #fff; }
-
-    /************** Call */
-    #Call .close_btn { font-size: 4rem; }
-    #Call table { border-spacing: 10rem 0; height: 120%; }
-    #Call table td a { font-size: 5rem; }
+    #Portpolio table tr td:hover .info { background-color: rgba(0, 0, 0, 0); color: #000; }
 
 }
 
@@ -161,6 +159,7 @@ table td { position: relative; width: 25%; }
     .content { margin-bottom: 25rem; }
 
     /************** header */
+    #header { color: #000; }
     #header .nav .logo { margin: 0 3rem; font-size: 5rem; }
     #header .nav li { margin: 0 3rem; font-size: 3rem; }
     #header .nav li::before { display: none; }
@@ -205,6 +204,7 @@ table td { position: relative; width: 25%; }
     #Portpolio table tbody tr td:nth-child(1), #Portpolio table tbody tr td:nth-child(2) { margin-bottom: 8rem; }
 
     /************** Call */
+    #Call table { width: 100%; border-spacing: 0; }
     #Call table td a { font-size: 6.4rem; }
 }
 
