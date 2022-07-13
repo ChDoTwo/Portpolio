@@ -33,9 +33,6 @@ table td { position: relative; width: 25%; }
 #Road .inner p.typing { font: 700 5rem 'Roboto'; letter-spacing: 3px; }
 
 
-/************** content area */
-.content_area { transform: translateY(-2%); transition: all 0.5s; }
-.content_area.show { transform: translateY(0); }
 /************** header */
 #header { position: fixed; left: 0; top: 0; z-index: 15; width: 100%; height: 12rem; color: #fff; } 
 #header .nav .logo { margin: 0 4rem; font: 600 4.4rem 'EB Garamond'; font-weight: 400; cursor: pointer; }
@@ -93,7 +90,7 @@ table td { position: relative; width: 25%; }
 
 
 /************** Call */
-#Call { position: fixed; left: 0; bottom: 0; z-index: 10; height: 0; margin: 0; background-color: rgba(0, 0, 0, 0.8); }
+#Call { position: fixed; left: 0; bottom: 0; z-index: 15; height: 0; margin: 0; background-color: rgba(0, 0, 0, 0.8); overflow: hidden; }
 #Call .close_btn { top: 0; z-index: 15; font-size: 4rem; cursor: pointer; transition: all 0.6s; }
 #Call table { border-spacing: 10rem 0; height: 120%; }
 #Call table td a { font-size: 5rem; transition: all 0.3s; }

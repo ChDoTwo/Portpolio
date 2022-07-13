@@ -11,9 +11,8 @@ function text_typing(road_ending){ // typing animation
     if(road_idx < road_txt.length){
         $('.typing').append(road_txt[road_idx]); // 한글자씩 이어주기 (적기);
         road_idx++;
-    }else if(road_end >= 3){ // text 다 쓰고 끝내기
+    }else if(road_end >= 1){ // text 다 쓰고 끝내기
         $('#Road').hide(); // 숨기기
-        $('.content_area').addClass('show'); // 살짝 무빙
         $(window).trigger('resize'); // resize event 강제 실행
         clearInterval(road_typing); // 반복 종료
     }else{ // text 다 쓰고 잠시 멈췃다가 다시 시작
@@ -22,6 +21,11 @@ function text_typing(road_ending){ // typing animation
         $('.typing').text(""); // text 초기화   
     }
 }
+
+// setTimeout(function(){
+//     $('#Road').hide(); // 숨기기
+//     $(window).trigger('resize'); // resize event 강제 실행
+// },300)
 
 
 // resize 시
@@ -52,31 +56,36 @@ $('.nav').on('click','li',function(){
     var [win_w, win_h, win_t, header_h, home_h] = size_check(); // size 체크
     var [toContent_t, toContent_h] = size_check($(this).text()); // content 상위 포인트와 높이 체크
 
-    if($('.call').hasClass('on') == false){ // Call이 click이 안 되어 있다면
+    if($('.call').hasClass('on') == false){ // Call이 click이 안 되어 있다면 ( Call 클릭 여부 )
         $('.nav li').removeClass('on');
         $(this).addClass('on');
 
-        if($(this).hasClass('call') == true){ // Call을 click 한거라면
+        if($(this).hasClass('call') == true){ // Call을 click 한거라면 ( Call 클릭 인지 )
             $('#Call').animate({height:'15rem'},400,function(){ // Call Menu 열기
                 $('#Call').children('table').animate({opacity:'1'},400);
             });
-        }else{ 
+        }else{ // ( Call 클릭 인지 )
             if(win_w > 768){ // pc 버젼
                 $('html').animate({scrollTop:((toContent_t + win_h) - (toContent_h / 2 + win_h))},500); // 아니라면 해당 개체로 이동
             }else { // 모바일
                 $('html').animate({scrollTop: toContent_t - ( win_h / 3 ) },500); // 아니라면 해당 개체로 이동
             }
         }
-    }else { // Call이 click이 되어 있다면
+    }else { // Call이 click이 되어 있다면 ( Call 클릭 여부 )
         $('.nav li').removeClass('on');
         $('.call').addClass('on'); // call class on
         $(this).addClass('on'); // 선택한 class on
 
-        if(win_w > 768){ // pc 버젼
-            $('html').animate({scrollTop:((toContent_t + win_h) - (toContent_h / 2 + win_h))},500); // 아니라면 해당 개체로 이동
-        }else { // 모바일
-            $('html').animate({scrollTop: toContent_t - ( win_h / 3 ) },500); // 아니라면 해당 개체로 이동
+        if($(this).hasClass('call') == false){ // Call을 click 안 한거라면 ( Call 클릭 인지 )
+            if(win_w > 768){ // pc 버젼
+                $('html').animate({scrollTop:((toContent_t + win_h) - (toContent_h / 2 + win_h))},500); // 아니라면 해당 개체로 이동
+            }else { // 모바일
+                $('html').animate({scrollTop: toContent_t - ( win_h / 3 ) },500); // 아니라면 해당 개체로 이동
+            }
+        }else{
+            
         }
+        
     }
 });
 
