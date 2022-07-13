@@ -1,8 +1,33 @@
+// Roading
+var road_idx = 0;
+var road_delay = 150;
+var road_end = 1; // 반복 횟수
+var road_txt = $('.typing').text(); // 설정된 텍스트 읽기
+road_txt = road_txt.split(""); // 읽은 텍스트 한 글자씩 자르기
+$('.typing').text(""); // 글자 삭제
+var road_typing = setInterval(text_typing, road_delay); // 글자 쓰기
+
+function text_typing(road_ending){ // typing animation
+    if(road_idx < road_txt.length){
+        $('.typing').append(road_txt[road_idx]); // 한글자씩 이어주기 (적기);
+        road_idx++;
+    }else if(road_end >= 3){ // text 다 쓰고 끝내기
+        $('#Road').hide(); // 숨기기
+        $('.content_area').addClass('show'); // 살짝 무빙
+        $(window).trigger('resize'); // resize event 강제 실행
+        clearInterval(road_typing); // 반복 종료
+    }else{ // text 다 쓰고 잠시 멈췃다가 다시 시작
+        road_end++;
+        road_idx = 0; // index 초기화
+        $('.typing').text(""); // text 초기화   
+    }
+}
+
+
 // resize 시
 $(window).on('resize',function(e){
     resize_e(e);
 });
-$(window).trigger('resize'); // resize event 강제 실행
 
 // scroll 시
 $(window).on('scroll',function(e){
@@ -57,7 +82,7 @@ $('.nav').on('click','li',function(){
 
 
 // scroll 시
-var isStop = false; // 한번만 실행되게 하기
+var isStop = false; // 구역 스탑
 var drawing = true; // 그래프 중첩 현상
 function scroll_e(e){
     var [win_w, win_h, win_t, header_h, home_h] = size_check(); // size 체크
@@ -71,12 +96,12 @@ function scroll_e(e){
         }
 
         if(isStop == false) { // 실행 멈춤이 안 되어 있고
-            if(win_t > (home_h / 3 * 2 ) && win_t < toContent_t + (toContent_h / 2)){ // 이 구역에 들어 왔을 때
+            if(win_t > (home_h / 3 * 2 ) && win_t < toContent_t + (toContent_h / 3 * 2)){ // 이 구역에 들어 왔을 때
                 drawing = true; // draw 실행
                 skill_draw(); // draw 실행
             }else{}
         }else { // 실행멈춤이 되어 있고
-            if(win_t < (home_h / 3 * 2 ) || win_t > toContent_t + toContent_h){ // 위 구역을 벗어 나면
+            if(win_t < (home_h / 3 * 2 ) || win_t > toContent_t + (toContent_h / 3 * 2)){ // 위 구역을 벗어 나면
                 drawing = false; // draw 멈춤
                 isStop = false; // 실행 멈춤을 취소
             }else{}
@@ -86,9 +111,11 @@ function scroll_e(e){
     } 
 }
 
+
 // resize 시
 function resize_e(e){
     reset_opt();
+    skill_draw();
     square_opt('#Portpolio table td') // portpolio td 정사각형 설정
     square_opt('#Skill table tr:first-child td') // skill td 정사각형 설정
 }

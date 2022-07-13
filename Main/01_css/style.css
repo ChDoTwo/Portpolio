@@ -27,6 +27,15 @@ table td { position: relative; width: 25%; }
 .po_Y_center { position: absolute; top: 50%; transform: translateY(-50%); }
 
 
+/************** Road */
+#Road { position: fixed; left: 0; top: 0; z-index: 20; width: 100%; height: 100vh; background-color: #fff; }
+#Road .inner { display: flex; justify-content: center; align-items: center; }
+#Road .inner p.typing { font: 700 5rem 'Roboto'; letter-spacing: 3px; }
+
+
+/************** content area */
+.content_area { transform: translateY(-2%); transition: all 0.5s; }
+.content_area.show { transform: translateY(0); }
 /************** header */
 #header { position: fixed; left: 0; top: 0; z-index: 15; width: 100%; height: 12rem; color: #fff; } 
 #header .nav .logo { margin: 0 4rem; font: 600 4.4rem 'EB Garamond'; font-weight: 400; cursor: pointer; }
@@ -95,6 +104,10 @@ table td { position: relative; width: 25%; }
 #Call table td:nth-child(3) a:hover { color: #304ffe; }
 #Call table td:nth-child(4) a:hover { color: rgba(255, 255, 255, 0.2); }
 
+
+/************** Footer */
+#footer { width: 100%; background-color: #000; color: #fff; }
+#footer p { padding: 1rem 0; }
 
 /* 반응형 */
 @media screen and (max-width: 1200px) {
