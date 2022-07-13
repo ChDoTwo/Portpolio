@@ -1,31 +1,41 @@
 // Roading
-var road_idx = 0;
-var road_delay = 150;
-var road_end = 1; // 반복 횟수
-var road_txt = $('.typing').text(); // 설정된 텍스트 읽기
-road_txt = road_txt.split(""); // 읽은 텍스트 한 글자씩 자르기
-$('.typing').text(""); // 글자 삭제
-var road_typing = setInterval(text_typing, road_delay); // 글자 쓰기
+// var road_idx = 0;
+// var road_delay = 150;
+// var road_end = 1; // 반복 횟수
+// var road_txt = $('.typing').text(); // 설정된 텍스트 읽기
+// road_txt = road_txt.split(""); // 읽은 텍스트 한 글자씩 자르기
+// $('.typing').text(""); // 글자 삭제
+// var road_typing = setInterval(text_typing, road_delay); // 글자 쓰기
 
-function text_typing(road_ending){ // typing animation
-    if(road_idx < road_txt.length){
-        $('.typing').append(road_txt[road_idx]); // 한글자씩 이어주기 (적기);
-        road_idx++;
-    }else if(road_end >= 1){ // text 다 쓰고 끝내기
-        $('#Road').hide(); // 숨기기
-        $(window).trigger('resize'); // resize event 강제 실행
-        clearInterval(road_typing); // 반복 종료
-    }else{ // text 다 쓰고 잠시 멈췃다가 다시 시작
-        road_end++;
-        road_idx = 0; // index 초기화
-        $('.typing').text(""); // text 초기화   
-    }
-}
+// function text_typing(road_ending){ // typing animation
+//     if(road_idx < road_txt.length){
+//         $('.typing').append(road_txt[road_idx]); // 한글자씩 이어주기 (적기);
+//         road_idx++;
+//     }else if(road_end >= 1){ // text 다 쓰고 끝내기
+//         $('#Road').hide(); // 숨기기
+//         $(window).trigger('resize'); // resize event 강제 실행
+//         clearInterval(road_typing); // 반복 종료
+//     }else{ // text 다 쓰고 잠시 멈췃다가 다시 시작
+//         road_end++;
+//         road_idx = 0; // index 초기화
+//         $('.typing').text(""); // text 초기화   
+//     }
+// }
 
 // setTimeout(function(){
 //     $('#Road').hide(); // 숨기기
 //     $(window).trigger('resize'); // resize event 강제 실행
 // },300)
+
+// Road
+setTimeout(function(){ 
+    $('#Road div').addClass('roading'); // 글씨 나타나기
+    setTimeout(function(){ // 1초 정지 후 Road 창 닫기
+        $('#Road').hide(); // 숨기기
+        $('.content_area').addClass('show');
+        $(window).trigger('resize'); // resize event 강제 실행
+    },1500)
+},3000)
 
 
 // resize 시

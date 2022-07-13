@@ -29,8 +29,30 @@ table td { position: relative; width: 25%; }
 
 /************** Road */
 #Road { position: fixed; left: 0; top: 0; z-index: 20; width: 100%; height: 100vh; background-color: #fff; }
-#Road .inner { display: flex; justify-content: center; align-items: center; }
-#Road .inner p.typing { font: 700 5rem 'Roboto'; letter-spacing: 3px; }
+#Road div p { font: 700 5rem 'Roboto'; letter-spacing: 3px; padding: 1rem 2rem; opacity: 0; transition: opacity 1s; }
+#Road div.roading p { opacity: 1; }
+
+#Road div::before, #Road div::after { content: ''; position: absolute; border: 0; border-style: solid; border-color: #000; }
+#Road div::before { left: 0; top: 0; border-width: 4px 4px 0 0; animation: before_animate 1.5s linear forwards; }
+#Road div::after { left: 100%; top: 100%; border-width: 0 0 4px 4px; animation: after_animate 1.5s 1.5s linear forwards; opacity: 0; }
+
+
+/* Road Animation */
+@keyframes before_animate {
+    0% { width: 0; height: 0; }
+    50% { width: 100%; height: 0; }
+    100% { width: 100%; height: 100%; }
+}
+
+@keyframes after_animate {
+    0% { width: 0; height: 0; left: 100%; top: 100%; opacity: 1; }
+    50% { width: 100%; height: 0; left: 0; top: 100%; opacity: 1; }
+    100% { width: 100%; height: 100%; left: 0; top: 0; opacity: 1; }
+}
+
+/************** Content area */
+.content_area { margin-top: 10rem; transition: all 0.5s; }
+.content_area.show { margin-top: 0; }
 
 
 /************** header */
