@@ -1,0 +1,94 @@
+/* font */
+@import url('/font/DancingScript-VariableFont_wght.ttf');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+/* css reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+*::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ol, ul, li { list-style: none; }
+a { text-decoration: none; color: #000; cursor: pointer; }
+html, body { font-size: 10px; background-color: #fff; }
+img { display: block; width: 100%; }
+ 
+/* 공통 */
+.content { margin: 5% 0; }
+.inner { width: 118rem; margin: 0 auto; }
+.inner_in { width: 118rem; height: 100%; margin: 0 auto; padding: 0 2rem; }
+.Dancing { font-family: 'Dancing Script', cursive; }
+
+
+/* header */
+header table { width: 100%; height: 6rem; border: 0; border-collapse: collapse; }
+header table #LOGO { font-size: 4rem; letter-spacing: 1px; }
+header table td:nth-of-type(2) { width: 55%; }
+header table #find_box { width: 100%; height: 4rem; border: 0; padding-left: 2%; background-color: rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.5); }
+header table #find_box:focus { color: #000; }
+header table td:nth-of-type(3) { width: 25%; text-align: right; }
+header table #LOGIN, #SIGN_UP { display: inline-block; font-size: 1.8rem; margin-left: 2.4rem; }
+
+
+/* nav */
+nav dl { width: 100%; margin-top: 3rem; font-size: 0; letter-spacing: 0; word-spacing: 0; text-align: center; }
+nav dl > dd { display: inline-block; width: calc((100% - 9rem) / 7 ); margin-right: 1.5rem; cursor: pointer; }
+nav dl > dd:last-of-type { margin-right: 0; }
+nav dl > dd::after { display: block; font-size: 1.4rem; margin-top: 1rem; }
+nav dl > dd:nth-of-type(1)::after { content: '의류'; }
+nav dl > dd:nth-of-type(2)::after { content: '서적'; }
+nav dl > dd:nth-of-type(3)::after { content: '캠핑'; }
+nav dl > dd:nth-of-type(4)::after { content: '공구'; }
+nav dl > dd:nth-of-type(5)::after { content: '운동'; }
+nav dl > dd:nth-of-type(6)::after { content: '보드게임'; }
+nav dl > dd:nth-of-type(7)::after { content: '기타'; }
+nav dl > dd > img { width: 4.8rem; margin: 0 auto; }
+/* nav > .inner_in li { width: 4.8rem; height: 4.8rem; display: inline-block; } */
+
+header.header_fix { position: fixed; left: 0; top: 0; z-index: 5; }
+nav.nav_fix { position: fixed; left: 0; top: 6rem; z-index: 5; }
+
+
+/* Banner */
+#banner { margin-top: 5rem; }
+#banner .swiper-container { position: relative; height: 55rem; overflow: hidden; }
+#banner .swiper-slide { width: 100%; height: 100%; font-size: 5rem; font-weight: 700; text-align: center; }
+#banner .swiper-slide[data-num="1"] { background-color: red; }
+#banner .swiper-slide[data-num='2'] { background-color: orange; }
+#banner .swiper-slide[data-num='3'] { background-color: yellow; }
+#banner .swiper-slide[data-num='4'] { background-color: green; }
+#banner .swiper-slide[data-num='5'] { background-color: blue; }
+#banner .swiper-slide[data-num='6'] { background-color: purple; }
+#banner .swiper-pagination-bullet-active { background-color: #fff; }
+
+
+/* best_item */
+#best_item .inner h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 3rem; }
+#best_item .inner .container { display: flex; width: 100%; overflow: hidden; }
+#best_item .inner .container > .wrap { display: flex; flex-shrink: 0; width: 100%; }
+#best_item .inner .container > .wrap > .box { width: 19%; margin-right: 8%; }
+#best_item .inner .container > .wrap > .box:last-of-type { margin-right: 0; }
+#best_item .inner .container > .wrap > .box > .pic { width: 100%; height: 15rem; border-radius: 15px; background-color: lightsalmon; }
+#best_item .inner .container > .wrap > .box > .info { width: 100%; padding-top: 8%; }
+#best_item .inner .container > .wrap > .box > .info > h2.title { margin: 0; font-size: 2rem; font-weight: 400; }
+#best_item .inner .container > .wrap > .box > .info > h3.address { margin: 1.5% 0 4%; font-size: 1.4rem; font-weight: 400; opacity: 0.6; }
+#best_item .inner .container > .wrap > .box > .info > .bottom_info { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+#best_item .inner .container > .wrap > .box > .info > .bottom_info > p.price { font-size: 1.6rem; font-weight: 700; }
+#best_item .inner .container > .wrap > .box > .info > .bottom_info > p.attention { font-size: 1.2rem; opacity: 0.5; }
+
+
+
+
+/* 반응형 */ 
+@media screen and (max-width: 1280px) {
+    
+}
+
+@media screen and (max-width: 980px) {
+    
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+
+@media screen and (max-width: 640px) {
+    
+}

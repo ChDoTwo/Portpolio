@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css -->
+    <link href="01_css/styles.css" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+    <script> $(document).ready(function(){}); </script>
+
+    <!-- header start -->
+    <header>
+        <div class="inner">
+            <table><tbody><tr>
+                <td><a href="/" id="LOGO" class="Dancing">DaeSoSa</a></td>
+                <td><input type="text" value="동네 이름, 물품명 등을 검색해보세요!" name="find_box" id="find_box"></td>
+                <td><a href="#" id="LOGIN">로그인</a><a href="#" id="SIGN_UP">회원가입</a></td>
+            </tr></tbody></table>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- nav start -->
+    <nav>
+        <div class="inner">
+            <dl>
+                <dd onclick="JumpLink('nav_00')"><img src="00_image/icon/icon_cloths.png" alt="category_cloths" /></dd>
+                <dd onclick="JumpLink('nav_01')"><img src="00_image/icon/icon_book.png" alt="category_book" /></dd>
+                <dd onclick="JumpLink('nav_02')"><img src="00_image/icon/icon_camp.png" alt="category_camp" /></dd>
+                <dd onclick="JumpLink('nav_03')"><img src="00_image/icon/icon_tool_02.png" alt="category_tool" /></dd>
+                <dd onclick="JumpLink('nav_04')"><img src="00_image/icon/icon_exercise.png" alt="category_exercise" /></dd>
+                <dd onclick="JumpLink('nav_05')"><img src="00_image/icon/icon_game.png" alt="category_game" /></dd>
+                <dd onclick="JumpLink('nav_06')"><img src="00_image/icon/icon_etc.png" alt="category_etc" /></dd>
+            </dl>
+        </div>
+    </nav>
+    <!-- nav end -->
+
+    <!-- Banner Start -->
+    <section id="banner">
+        <div class="swiper-container inner">
+            <div class="swiper-wrapper">
+                <div data-num="1" class="swiper-slide">BANNER 01</div>
+                <div data-num="2" class="swiper-slide">BANNER 02</div>
+                <div data-num="3" class="swiper-slide">BANNER 03</div>
+                <div data-num="4" class="swiper-slide">BANNER 04</div>
+                <div data-num="5" class="swiper-slide">BANNER 05</div>
+                <div data-num="6" class="swiper-slide">BANNER 06</div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <!-- Banner End -->
+
+    <!-- best_item Start -->
+    <section id="best_item" class="content">
+        <div class="inner">
+            <h1>인기 상품</h1>
+            <div class="container">
+                <div class="wrap">
+                    <div class="box">
+                        <div class="pic"></div>
+                        <div class="info">
+                            <h2 class="title">야외용 철제 테이블</h2>
+                            <h3 class="address">서울 서초구 반포 4동</h3>
+                            <div class="bottom_info">
+                                <p class="price">30,000원</p>
+                                <p class="attention">관심 24</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pic"></div>
+                        <div class="info">
+                            <h2 class="title">야외용 철제 테이블</h2>
+                            <h3 class="address">서울 서초구 반포 4동</h3>
+                            <div class="bottom_info">
+                                <p class="price">30,000원</p>
+                                <p class="attention">관심 24</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pic"></div>
+                        <div class="info">
+                            <h2 class="title">야외용 철제 테이블</h2>
+                            <h3 class="address">서울 서초구 반포 4동</h3>
+                            <div class="bottom_info">
+                                <p class="price">30,000원</p>
+                                <p class="attention">관심 24</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pic"></div>
+                        <div class="info">
+                            <h2 class="title">야외용 철제 테이블</h2>
+                            <h3 class="address">서울 서초구 반포 4동</h3>
+                            <div class="bottom_info">
+                                <p class="price">30,000원</p>
+                                <p class="attention">관심 24</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </section>
+    <!-- best_item End -->
+
+
+
+    <!-- js -->
+    <script src="02_js/main.js"></script>
+</body>
+</html>
