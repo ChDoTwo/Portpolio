@@ -20,33 +20,58 @@
 <body>
     <script> $(document).ready(function(){}); </script>
 
-    <!-- header start -->
-    <header>
+    
+    <div id="top_header">
         <div class="inner">
-            <table><tbody><tr>
-                <td><a href="/" id="LOGO" class="Dancing">DaeSoSa</a></td>
-                <td><input type="text" value="동네 이름, 물품명 등을 검색해보세요!" name="find_box" id="find_box"></td>
-                <td><a href="#" id="LOGIN">로그인</a><a href="#" id="SIGN_UP">회원가입</a></td>
-            </tr></tbody></table>
+            <!-- header start -->
+            <header id="header">
+                <a href="#" id="logo">DaeSoSa</a>
+                <input type="text" value="동네 이름, 물품명 등을 검색해보세요!" name="find_box" id="find_box">
+                <div class="info_box">
+                    <a href="#" id="login">로그인</a>
+                    <a href="#" id="sign_up">회원가입</a>
+                </div>
+            </header>
+            <!-- header end -->
+            <!-- Nav start -->
+            <nav id="nav">
+                <table border="0"><tbody>
+                    <tr>
+                        <td onclick="JumpLink('nav_00')">
+                            <img src="00_image/icon/icon_cloths.png" alt="category_cloths" />
+                            <p>의류</p>
+                        </td>
+                        <td onclick="JumpLink('nav_01')">
+                            <img src="00_image/icon/icon_book.png" alt="category_book" />
+                            <p>서적</p>
+                        </td>
+                        <td onclick="JumpLink('nav_02')">
+                            <img src="00_image/icon/icon_camp.png" alt="category_camp" />
+                            <p>캠핑</p>
+                        </td>
+                        <td onclick="JumpLink('nav_03')">
+                            <img src="00_image/icon/icon_tool_02.png" alt="category_tool" />
+                            <p>공구</p>
+                        </td>
+                        <td onclick="JumpLink('nav_04')">
+                            <img src="00_image/icon/icon_exercise.png" alt="category_exercise" />
+                            <p>운동</p>
+                        </td>
+                        <td onclick="JumpLink('nav_05')">
+                            <img src="00_image/icon/icon_game.png" alt="category_game" />
+                            <p>보드게임</p>
+                        </td>
+                        <td onclick="JumpLink('nav_06')">
+                            <img src="00_image/icon/icon_etc.png" alt="category_etc" />
+                            <p>기타</p>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </nav>
+            <!-- Nav end -->
         </div>
-    </header>
-    <!-- header end -->
-
-    <!-- nav start -->
-    <nav>
-        <div class="inner">
-            <dl>
-                <dd onclick="JumpLink('nav_00')"><img src="00_image/icon/icon_cloths.png" alt="category_cloths" /></dd>
-                <dd onclick="JumpLink('nav_01')"><img src="00_image/icon/icon_book.png" alt="category_book" /></dd>
-                <dd onclick="JumpLink('nav_02')"><img src="00_image/icon/icon_camp.png" alt="category_camp" /></dd>
-                <dd onclick="JumpLink('nav_03')"><img src="00_image/icon/icon_tool_02.png" alt="category_tool" /></dd>
-                <dd onclick="JumpLink('nav_04')"><img src="00_image/icon/icon_exercise.png" alt="category_exercise" /></dd>
-                <dd onclick="JumpLink('nav_05')"><img src="00_image/icon/icon_game.png" alt="category_game" /></dd>
-                <dd onclick="JumpLink('nav_06')"><img src="00_image/icon/icon_etc.png" alt="category_etc" /></dd>
-            </dl>
-        </div>
-    </nav>
-    <!-- nav end -->
+    </div>
+    
 
     <!-- Banner Start -->
     <section id="banner">
@@ -63,6 +88,62 @@
         </div>
     </section>
     <!-- Banner End -->
+
+    <!-- best_item Start -->
+    <section id="best_item" class="content">
+        <div class="inner">
+            <h1>인기 상품</h1>
+            <div class="container">
+                <div class="wrap">
+                    <div class="box">
+                        <div class="pic"></div>
+                        <div class="info">
+                            <h2 class="title">야외용 철제 테이블</h2>
+                            <h3 class="address">서울 서초구 반포 4동</h3>
+                            <div class="bottom_info">
+                                <p class="price">30,000원</p>
+                                <p class="attention">관심 24</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pic"></div>
+                        <div class="info">
+                            <h2 class="title">야외용 철제 테이블</h2>
+                            <h3 class="address">서울 서초구 반포 4동</h3>
+                            <div class="bottom_info">
+                                <p class="price">30,000원</p>
+                                <p class="attention">관심 24</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pic"></div>
+                        <div class="info">
+                            <h2 class="title">야외용 철제 테이블</h2>
+                            <h3 class="address">서울 서초구 반포 4동</h3>
+                            <div class="bottom_info">
+                                <p class="price">30,000원</p>
+                                <p class="attention">관심 24</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pic"></div>
+                        <div class="info">
+                            <h2 class="title">야외용 철제 테이블</h2>
+                            <h3 class="address">서울 서초구 반포 4동</h3>
+                            <div class="bottom_info">
+                                <p class="price">30,000원</p>
+                                <p class="attention">관심 24</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </section>
+    <!-- best_item End -->
 
     <!-- best_item Start -->
     <section id="best_item" class="content">
