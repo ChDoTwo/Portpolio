@@ -1,3 +1,13 @@
+// resize event
+$(window).on('resize',function(e){
+    resize_e(e);
+});
+$(window).trigger('resize'); // resize event 강제 실행
+
+function resize_e(e){   
+    $('html').animate({scrollTop:'0'},400); // 맨 위로 이동
+}
+
 // scroll event
 $(window).on('scroll',function(e){
     scroll_e(e);
@@ -9,16 +19,12 @@ function scroll_e(e){
     var content_h = $('#top_header').height(); // header 높이
 
     if(win_w > 768){
-        if(win_t == 0) { // 최상위일때 nav 조정
-            $('#nav').slideDown();
-        }else {
-            $('#nav').slideUp();
-        }
-
         if(win_t > content_h){ // header fixed 설정
             $('#top_header').addClass('fixed');
+            $('#nav').stop().slideUp(0);
         }else{
             $('#top_header').removeClass('fixed');
+            $('#nav').stop().slideDown(200);
         }
     }else{
 
@@ -28,19 +34,10 @@ function scroll_e(e){
 
 // header hover event
 $('#top_header').hover(function(){
-    header_hover(true);
+    if($('#top_header').hasClass('fixed') == true) $('#nav').stop().slideDown();
 },function(){
-    header_hover(false);
+    if($('#top_header').hasClass('fixed') == true) $('#nav').stop().slideUp();
 });
-// header hover event
-function header_hover(ms){
-    if($('#top_header').hasClass('fixed') == true){ // top_header 에 fixed class가 있는지
-        if(ms == true) $('#nav').slideDown();
-        if(ms == false) $('#nav').slideUp();
-    }else {
-
-    }
-}
 
 
 /* 찾기 텍스트 클릭 시 안내 문 삭제 */
@@ -77,6 +74,7 @@ function size_check(name){
 /* 배너 */
 var Swiper_banner = new Swiper('#banner .swiper-container',{
     slidesPerView: "auto",
+    effect: "fade",
     loop: true,
     autoplay: {
         delay: 2500,
