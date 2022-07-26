@@ -15,10 +15,15 @@ $(window).on('scroll',function(e){
 });
 
 // header hover event
+var header_scroll = false; // 스크롤 여부 (현 상태 = 상위)
 $('#top_header').hover(function(){
-    if($('#top_header').hasClass('fixed') == true) $('#nav').stop().slideDown(); // 스크롤을 내린 상태에서 마우스를 올리면
+    if(header_scroll != false){ // 스크롤 내렸다면
+        header_hover(true);
+    }else{}
 },function(){
-    if($('#top_header').hasClass('fixed') == true) $('#nav').stop().slideUp(); // 스크롤을 내린 상태에서 마우스를 때면
+    if(header_scroll != false){
+        header_hover(false); // 스크롤 내렸다면
+    }else{}
 });
 
 // 찾기 텍스트 클릭 시 안내 문 삭제 
@@ -26,8 +31,13 @@ $('#find_box').on('focus focusout',function(){
     find_box();
 });
 
+// tab menu click event
+$('.tab_menu').on('click','li',function(){
+    var tab_i = $(this).index(); // li index 값 추출
+    var content_n = $(this).parents('.content').attr('id'); // click 한 tab 요소의 section 찾기
 
-
+    tab_menu(tab_i, content_n);
+});
 
 
 
@@ -61,18 +71,34 @@ function scroll_e(e){
 
     if(win_w > 768){
         if(win_t > content_h){ // header fixed 설정
-            $('#top_header').addClass('fixed');
-            $('#nav').removeAttr('style');
-            $('#nav').stop().slideUp(0);
+            header_scroll = true;
         }else{
+            header_scroll = false;
             $('#top_header').removeClass('fixed');
             $('#nav').removeAttr('style');
-            $('#nav').stop().slideDown(200);
         }
     }else{
 
     }
     
+}
+
+// header hover event
+function header_hover(ms){
+    if(ms == true){ // 마우스 올린 상태
+        $('#top_header').addClass('fixed');
+        $('#nav').removeAttr('style');
+        $('#nav').stop().slideDown(0);
+    }else{ // 마우스 땐 상태
+        $('#nav').removeAttr('style');
+        $('#nav').stop().slideUp(200);
+    }
+}
+
+// tab menu click event
+function tab_menu(i, name){
+    $('#'+name).find('.item_box').removeClass('on');
+    $('#'+name).find('.item_box').eq(i).addClass('on');
 }
 
 // 찾기 텍스트 event

@@ -10,13 +10,28 @@ html, body { font-size: 10px; background-color: #fff; }
 img { display: block; width: 100%; }
  
 /* 공통 */
-.content { margin-top: 5rem; }
+.content_area { width: 100%; }
+.content { width: 100%; margin-top: 5rem; }
 .inner { width: 60%; margin: 0 auto; }
+
+/* tab menu */
+.tab_title { margin-bottom: 5rem; display: flex; justify-content: space-between; align-items: flex-end; }
+.tab_title h2 { font-size: 3.6rem; font-weight: 700; }
+.tab_menu li { display: inline-block; margin-right: 3rem; font-size: 1.8rem; cursor: pointer; }
+.item_container { position: relative; width: 100%; }
+.item_container ul.item_box { 
+    position: absolute; left: 0; top: 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; 
+    width: 100%; opacity: 0; transform: translateY(2%); transition: all 0.4s;
+}
+.item_container ul.item_box.on { position: static; opacity: 1; transform: translateY(0); }
+
+
+
 
 /************* top_header */
 /* header */
 #top_header { width: 100%; transition: all 0.4s; }
-#header { position: fixed; left: 50%; top: 0; transform: translateX(-50%); width: 60%; height: 6rem; display: flex; justify-content: space-between; align-items: center; }
+#header { position: fixed; left: 50%; top: 0; transform: translateX(-50%); z-index: 10; width: 60%; height: 6rem; display: flex; justify-content: space-between; align-items: center; }
 #logo { font: 400 4rem 'Dancing Script'; letter-spacing: 1px; }
 #find_box { width: 50%; height: 60%; border: 0; padding-left: 1%; background-color: rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.5); transition: all 0.4s; }
 #find_box:focus { color: #000; }
@@ -52,18 +67,19 @@ img { display: block; width: 100%; }
 
 
 /* best_item */
-#best_item .inner h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 3rem; }
-#best_item .inner .container { display: flex; width: 100%; overflow: hidden; }
-#best_item .inner .container > .wrap { display: flex; flex-shrink: 0; width: 100%; }
-#best_item .inner .container > .wrap > .box { width: 19%; margin-right: 8%; }
-#best_item .inner .container > .wrap > .box:last-of-type { margin-right: 0; }
-#best_item .inner .container > .wrap > .box > .pic { width: 100%; height: 15rem; border-radius: 15px; background-color: lightsalmon; }
-#best_item .inner .container > .wrap > .box > .info { width: 100%; padding-top: 8%; }
-#best_item .inner .container > .wrap > .box > .info > h2.title { margin: 0; font-size: 2rem; font-weight: 400; }
-#best_item .inner .container > .wrap > .box > .info > h3.address { margin: 1.5% 0 4%; font-size: 1.4rem; font-weight: 400; opacity: 0.6; }
-#best_item .inner .container > .wrap > .box > .info > .bottom_info { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-#best_item .inner .container > .wrap > .box > .info > .bottom_info > p.price { font-size: 1.6rem; font-weight: 700; }
-#best_item .inner .container > .wrap > .box > .info > .bottom_info > p.attention { font-size: 1.2rem; opacity: 0.5; }
+#best_item { margin-bottom: 50rem; }
+
+#best_item .item_container ul.item_box li.item_product { width: 21%; margin-bottom: 5rem; }
+#best_item .item_container .item_pic { width: 100%; height: 20rem; border-radius: 15px; overflow: hidden; }
+
+#best_item .item_container .item_box:nth-child(1) .item_pic { background-color: lightsalmon; }
+#best_item .item_container .item_box:nth-child(2) .item_pic { background-color: lightseagreen; }
+#best_item .item_container .item_info { width: 100%; padding: 5%; }
+#best_item .item_container .item_info h3.item_title { font-size: 2rem; cursor: pointer; }
+#best_item .item_container .item_info h4.item_address { margin: 1rem 0 2rem; font-size: 1.4rem; font-weight: 400; opacity: 0.6; }
+#best_item .item_container .item_info .bottom_info { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+#best_item .item_container .item_info p.item_price { font-size: 1.6rem; }
+#best_item .item_container .item_info p.item_attention { font-size: 1.2rem; opacity: 0.6; }
 
 
 
