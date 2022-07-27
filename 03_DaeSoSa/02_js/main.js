@@ -36,7 +36,7 @@ $('.tab_menu').on('click','li',function(){
     var tab_i = $(this).index(); // li index 값 추출
     var content_n = $(this).parents('.content').attr('id'); // click 한 tab 요소의 section 찾기
 
-    tab_menu(tab_i, content_n);
+    tab_menu(tab_i, content_n, this);
 });
 
 
@@ -96,7 +96,12 @@ function header_hover(ms){
 }
 
 // tab menu click event
-function tab_menu(i, name){
+function tab_menu(i, name, tab_n){
+    // tab list 효과
+    $('#'+name).find('.tab_menu').children('li').removeClass('on'); // 해당 tab content에서 tab menu list 효과 종료
+    $(tab_n).addClass('on'); // 해당 list 효과만 적용
+
+    // tab item box 교체
     $('#'+name).find('.item_box').removeClass('on');
     $('#'+name).find('.item_box').eq(i).addClass('on');
 }
@@ -132,6 +137,8 @@ function size_check(name){
 // reset 설정
 function reset_opt(){ // 첫 상태
     $('#header').removeClass('fixed'); // 생성된 header class 삭제
+    $('.tab_menu li').removeClass('on'); // 모든 tab menu list 효과 종료
+    $('.tab_menu li').eq(0).addClass('on'); // 첫번째 list에게만 적용
 
     $('html').animate({scrollTop:'0'},400); // 맨 위로 이동
 }

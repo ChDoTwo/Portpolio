@@ -8,17 +8,27 @@ ol, ul, li { list-style: none; }
 a { text-decoration: none; color: inherit; cursor: pointer; }
 html, body { font-size: 10px; background-color: #fff; }
 img { display: block; width: 100%; }
+:root {
+    --table--spacing: 2rem; 
+}
  
 /* 공통 */
 .content_area { width: 100%; }
-.content { width: 100%; margin-top: 5rem; }
+.content { width: 100%; margin-bottom: 15rem; }
 .inner { width: 60%; margin: 0 auto; }
+.content_title { font-size: 3.6rem; font-weight: 700; }
 
-/* tab menu */
-.tab_title { margin-bottom: 5rem; display: flex; justify-content: space-between; align-items: flex-end; }
-.tab_title h2 { font-size: 3.6rem; font-weight: 700; }
-.tab_menu li { display: inline-block; margin-right: 3rem; font-size: 1.8rem; cursor: pointer; }
-.item_container { position: relative; width: 100%; }
+/* tab menu 공통 */
+.tab_title { display: flex; justify-content: space-between; align-items: flex-end; }
+.tab_menu li { position: relative; display: inline-block; margin-right: 3rem; font-size: 1.8rem; font-weight: 400; cursor: pointer; }
+.tab_menu li::before { 
+    content: ''; position: absolute; left: 50%; bottom: -10%; transform: translateX(-50%); 
+    width: 0; height: 2px; background-color: #000; transition: all 0.4s; 
+}
+.tab_menu li:hover::before { width: 100%; }
+.tab_menu li.on { font-weight: 700; }
+.tab_menu li.on::before { width: 100%; }
+.item_container { position: relative; width: 100%; margin-top: 5rem; }
 .item_container ul.item_box { 
     position: absolute; left: 0; top: 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; 
     width: 100%; opacity: 0; transform: translateY(2%); transition: all 0.4s;
@@ -39,7 +49,7 @@ img { display: block; width: 100%; }
 #sign_up { font-size: 1.8rem; margin-left: 3rem; }
 
 /* Nav */
-#nav { width: 100%; margin-top: 9rem; }
+#nav { width: 100%; margin: 9rem 0 3rem; }
 #nav table td { padding: 1rem 0; border-radius: 2rem; text-align: center; cursor: pointer; }
 #nav table td img { width: 35%; margin: 0 auto; }
 #nav table td p { margin-top: 1rem; font-size: 1.6rem; }
@@ -67,21 +77,34 @@ img { display: block; width: 100%; }
 
 
 /* best_item */
-#best_item { margin-bottom: 50rem; }
-
 #best_item .item_container ul.item_box li.item_product { width: 21%; margin-bottom: 5rem; }
 #best_item .item_container .item_pic { width: 100%; height: 20rem; border-radius: 15px; overflow: hidden; }
-
 #best_item .item_container .item_box:nth-child(1) .item_pic { background-color: lightsalmon; }
 #best_item .item_container .item_box:nth-child(2) .item_pic { background-color: lightseagreen; }
+
 #best_item .item_container .item_info { width: 100%; padding: 5%; }
 #best_item .item_container .item_info h3.item_title { font-size: 2rem; cursor: pointer; }
 #best_item .item_container .item_info h4.item_address { margin: 1rem 0 2rem; font-size: 1.4rem; font-weight: 400; opacity: 0.6; }
-#best_item .item_container .item_info .bottom_info { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+#best_item .item_container .item_info div.bottom_info { width: 100%; display: flex; justify-content: space-between; align-items: center; }
 #best_item .item_container .item_info p.item_price { font-size: 1.6rem; }
 #best_item .item_container .item_info p.item_attention { font-size: 1.2rem; opacity: 0.6; }
 
 
+/* year_product */
+#year_product table { width: 100%; height: 60rem; border-collapse: collapse; border: 0; }
+#year_product table tr td { width: 70%; height: 50%; }
+#year_product table tr td .item_pic { width: 100%; height: 100%; background-color: #808080; }
+#year_product table tr:nth-child(1) td:nth-child(1) .item_pic { width: calc(100% - var(--table--spacing)); margin-right: var(--table--spacing); } 
+#year_product table tr:nth-child(1) td:nth-child(2) .item_pic { height: calc(100% - var(--table--spacing)); margin-bottom: var(--table--spacing); } 
+
+
+/* footer - section4 */
+#footer { padding: 3rem 0; background-color: rgba(0, 0, 0, 0.8); color: #fff; }
+#footer .footer_click { position: relative; }
+#footer .footer_click a { padding: 0 3rem; font-size: 1.4rem; border-left: 1px dotted rgba(255, 255, 255, 0.2); }
+#footer .footer_click a:first-child { padding-left: 0; border-left: none; }
+#footer .footer_click a:hover { color: rgba(255, 255, 255, 0.5); }
+#footer .making { position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.2rem; text-align: right; }
 
 
 /* 반응형 */ 
