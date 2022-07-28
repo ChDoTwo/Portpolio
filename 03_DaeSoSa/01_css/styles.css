@@ -16,7 +16,8 @@ img { display: block; width: 100%; }
 .content_area { width: 100%; }
 .content { width: 100%; margin-bottom: 15rem; }
 .inner { width: 60%; margin: 0 auto; }
-.content_title { font-size: 3.6rem; font-weight: 700; }
+.item_pic { width: 100%; border-radius: 15px; overflow: hidden; }
+h2.content_title { font-size: 3rem; font-weight: 700; }
 
 /* tab menu 공통 */
 .tab_title { display: flex; justify-content: space-between; align-items: flex-end; }
@@ -78,22 +79,26 @@ img { display: block; width: 100%; }
 
 /* best_item */
 #best_item .item_container ul.item_box li.item_product { width: 21%; margin-bottom: 5rem; }
-#best_item .item_container .item_pic { width: 100%; height: 20rem; border-radius: 15px; overflow: hidden; }
+#best_item .item_container .item_pic { height: 20rem; }
 #best_item .item_container .item_box:nth-child(1) .item_pic { background-color: lightsalmon; }
 #best_item .item_container .item_box:nth-child(2) .item_pic { background-color: lightseagreen; }
 
 #best_item .item_container .item_info { width: 100%; padding: 5%; }
-#best_item .item_container .item_info h3.item_title { font-size: 2rem; cursor: pointer; }
-#best_item .item_container .item_info h4.item_address { margin: 1rem 0 2rem; font-size: 1.4rem; font-weight: 400; opacity: 0.6; }
+#best_item .item_container .item_info h3.item_title { font-size: 1.8rem; cursor: pointer; }
+#best_item .item_container .item_info h4.item_address { margin: 0.5rem 0 2rem; font-size: 1.2rem; font-weight: 400; opacity: 0.6; }
 #best_item .item_container .item_info div.bottom_info { width: 100%; display: flex; justify-content: space-between; align-items: center; }
 #best_item .item_container .item_info p.item_price { font-size: 1.6rem; }
 #best_item .item_container .item_info p.item_attention { font-size: 1.2rem; opacity: 0.6; }
+
+/* AppDown */
+#appdown .item_pic { position: relative; height: 20rem; background-color: lightpink; }
+#appdown .item_pic::before { content: 'App Download Banner'; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: 3rem; }
 
 
 /* year_product */
 #year_product table { width: 100%; height: 60rem; border-collapse: collapse; border: 0; }
 #year_product table tr td { width: 70%; height: 50%; }
-#year_product table tr td .item_pic { width: 100%; height: 100%; background-color: #808080; }
+#year_product table tr td .item_pic { height: 100%; background-color: #808080; }
 #year_product table tr:nth-child(1) td:nth-child(1) .item_pic { width: calc(100% - var(--table--spacing)); margin-right: var(--table--spacing); } 
 #year_product table tr:nth-child(1) td:nth-child(2) .item_pic { height: calc(100% - var(--table--spacing)); margin-bottom: var(--table--spacing); } 
 
