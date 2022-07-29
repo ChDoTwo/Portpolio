@@ -1,6 +1,6 @@
 // 카테고리 링크
 function JumpLink(str){
-    location.href = '/00_include/'+str+'/';
+    location.href = '/03_include/'+str+'/';
 };
 
 // resize event
@@ -26,9 +26,18 @@ $('#top_header').hover(function(){
     }else{}
 });
 
-// 찾기 텍스트 클릭 시 안내 문 삭제 
+// 텍스트 클릭 시 안내 문 삭제 
 $('#find_box').on('focus focusout',function(){
-    find_box();
+    text_box('#find_box', 0);
+    console.log('hello');
+});
+
+$('#id_box').on('focus focusout',function(){
+    text_box('#id_box', 1);
+});
+
+$('#pw_box').on('focus focusout',function(){
+    text_box('#pw_box', 2);
 });
 
 // tab menu click event
@@ -72,6 +81,8 @@ function scroll_e(e){
     if(win_w > 768){
         if(win_t > content_h){ // header fixed 설정
             header_scroll = true;
+            $('#top_header').addClass('fixed');
+            $('#nav').removeAttr('style');
         }else{
             header_scroll = false;
             $('#top_header').removeClass('fixed');
@@ -95,6 +106,7 @@ function header_hover(ms){
     }
 }
 
+
 // tab menu click event
 function tab_menu(i, name, tab_n){
     // tab list 효과
@@ -107,14 +119,30 @@ function tab_menu(i, name, tab_n){
 }
 
 // 찾기 텍스트 event
-function find_box(){
-    var findbox_val = $('#find_box').val();
+function text_box(name, num){
+    var box_val = $(name).val();
 
-    if(findbox_val == '동네 이름, 물품명 등을 검색해보세요!'){
-        $('#find_box').val(null);
-    }else if(findbox_val == ''){
-        $('#find_box').val('동네 이름, 물품명 등을 검색해보세요!');
-    }else{}
+    if(num == 0){ // find
+        if(box_val == '동네 이름, 물품명 등을 검색해보세요!'){
+            $(name).val('');
+        }else if(box_val == ''){
+            $(name).val('동네 이름, 물품명 등을 검색해보세요!');
+        }else{}
+    }else if(num == 1){ // id
+        if(box_val == 'ID'){
+            $(name).val('');
+        }else if(box_val == ''){
+            $(name).val('ID');
+        }else{}
+    }else if(num == 2){
+        if(box_val == 'PASSWORD'){
+            $(name).val('');
+            $(name).prop('type','password');
+        }else if(box_val == ''){
+            $(name).val('PASSWORD');
+            $(name).prop('type','text');
+        }else{}
+    } 
 }
 
 
@@ -139,6 +167,7 @@ function reset_opt(){ // 첫 상태
     $('#header').removeClass('fixed'); // 생성된 header class 삭제
     $('.tab_menu li').removeClass('on'); // 모든 tab menu list 효과 종료
     $('.tab_menu li').eq(0).addClass('on'); // 첫번째 list에게만 적용
+
 
     $('html').animate({scrollTop:'0'},400); // 맨 위로 이동
 }
