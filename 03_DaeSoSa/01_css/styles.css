@@ -13,7 +13,7 @@ img { display: block; width: 100%; }
 }
  
 /* 공통 */
-.content_area { width: 100%; margin-top: 21rem; }
+.content_area { width: 100%; margin-top: 25rem; }
 .content { width: 100%; margin-bottom: 15rem; }
 .inner { width: 60%; margin: 0 auto; }
 .item_pic { width: 100%; border-radius: 15px; overflow: hidden; }
@@ -36,31 +36,6 @@ p.content_sub_title { font-size: 1.6rem; margin-top: 2rem; }
     width: 100%; opacity: 0; transform: translateY(2%); transition: all 0.4s;
 }
 .item_container ul.item_box.on { position: static; opacity: 1; transform: translateY(0); }
-
-/************* top_header */
-/* header */
-#top_header { width: 100%; transition: all 0.4s; }
-#header { position: fixed; left: 50%; top: 0; transform: translateX(-50%); z-index: 10; width: 60%; height: 6rem; display: flex; justify-content: space-between; align-items: center; }
-#logo { font: 400 4rem 'Dancing Script'; letter-spacing: 1px; }
-#find_box { width: 50%; height: 60%; border: 0; padding-left: 1%; background-color: rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.5); transition: all 0.4s; }
-#find_box:focus { color: #000; }
-#login { font-size: 1.8rem; }
-#sign_up { font-size: 1.8rem; margin-left: 3rem; }
-
-/* Nav */
-#nav { position: fixed; left: 50%; top: 6rem; transform: translateX(-50%); width: 60%; height: 11rem; margin: 3rem 0 0; }
-#nav table td { padding: 1rem 0; border-radius: 2rem; text-align: center; cursor: pointer; }
-#nav table td img { width: 30%; margin: 0 auto; }
-#nav table td p { margin-top: 1rem; font-size: 1.6rem; }
-
-/* header action */
-#top_header.fixed { position: fixed; left: 0; top: 0; z-index: 10; }
-#top_header.fixed:hover { background-color: rgba(0, 0, 0, 0.5); color: #fff; }
-#top_header.fixed:hover #find_box { background-color: rgba(255, 255, 255, 0.5); }
-#top_header.fixed:hover #nav { opacity: 1; }
-#top_header.fixed #header { position: static; transform: translateX(0); width: 100%; }
-#top_header.fixed #nav { position: static; transform: translateX(0); width: 100%; margin-top: 3rem; opacity: 0; }
-#nav table td:hover { background-color: rgba(0, 0, 0, 0.1); }
 
 
 /************* Content area */

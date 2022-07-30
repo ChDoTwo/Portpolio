@@ -18,61 +18,14 @@
 
 </head>
 <body>
-    <script> $(document).ready(function(){}); </script>
-
-   <!-- top_header Start -->
-    <div id="top_header">
-        <div class="inner">
-            <!-- header start -->
-            <header id="header">
-                <a href="#" id="logo">DaeSoSa</a>
-                <input type="text" value="동네 이름, 물품명 등을 검색해보세요!" name="find_box" id="find_box">
-                <div class="info_box">
-                    <a href="03_include/index.html" id="login">로그인</a>
-                    <a href="#" id="sign_up">회원가입</a>
-                </div>
-            </header>
-            <!-- header end -->
-
-            <!-- Nav start -->
-            <nav id="nav">
-                <table border="0"><tbody>
-                    <tr>
-                        <td onclick="JumpLink('nav_00')">
-                            <img src="00_image/icon/icon_cloths.png" alt="category_cloths" />
-                            <p>의류</p>
-                        </td>
-                        <td onclick="JumpLink('nav_01')">
-                            <img src="00_image/icon/icon_book.png" alt="category_book" />
-                            <p>서적</p>
-                        </td>
-                        <td onclick="JumpLink('nav_02')">
-                            <img src="00_image/icon/icon_camp.png" alt="category_camp" />
-                            <p>캠핑</p>
-                        </td>
-                        <td onclick="JumpLink('nav_03')">
-                            <img src="00_image/icon/icon_tool_02.png" alt="category_tool" />
-                            <p>공구</p>
-                        </td>
-                        <td onclick="JumpLink('nav_04')">
-                            <img src="00_image/icon/icon_exercise.png" alt="category_exercise" />
-                            <p>운동</p>
-                        </td>
-                        <td onclick="JumpLink('nav_05')">
-                            <img src="00_image/icon/icon_game.png" alt="category_game" />
-                            <p>보드게임</p>
-                        </td>
-                        <td onclick="JumpLink('nav_06')">
-                            <img src="00_image/icon/icon_etc.png" alt="category_etc" />
-                            <p>기타</p>
-                        </td>
-                    </tr>
-                </tbody></table>
-            </nav>
-            <!-- Nav end -->
-        </div>
-    </div>
-    <!-- Top_header End -->
+   <!-- Header Start -->
+   <div id="header_area"></div>
+   <script type="text/javascript">
+        $(document).ready(function(){
+            $('#header_area').load('/03_DaeSoSa/03_include/header.html');
+        });
+   </script>
+   <!-- Header End -->
 
     <!-- Content Area Start -->
     <div class="content_area">

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css -->
+    <link href="03_DaeSoSa/01_css/style.css" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <style>
+        /************* top_header */
+        /* header */
+        #top_header { width: 100%; transition: all 0.4s; }
+        #header { position: fixed; left: 50%; top: 0; transform: translateX(-50%); z-index: 10; width: 60%; height: 6rem; display: flex; justify-content: space-between; align-items: center; }
+        #logo { font: 400 4rem 'Dancing Script'; letter-spacing: 1px; }
+        #find_box { width: 50%; height: 60%; border: 0; padding-left: 1%; background-color: rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.5); transition: all 0.4s; }
+        #find_box:focus { color: #000; }
+        #login { font-size: 1.8rem; }
+        #sign_up { font-size: 1.8rem; margin-left: 3rem; }
+
+        /* Nav */
+        #nav { position: fixed; left: 50%; top: 6rem; transform: translateX(-50%); width: 60%; height: 14rem; margin: 3rem 0; }
+        #nav table td { padding: 1rem 0; border-radius: 2rem; text-align: center; cursor: pointer; }
+        #nav table td img { width: 32%; margin: 0 auto; }
+        #nav table td p { margin-top: 1rem; font-size: 1.6rem; }
+
+        /* header action */
+        #top_header.fixed { position: fixed; left: 0; top: 0; z-index: 10; }
+        #top_header.fixed:hover { background-color: rgba(0, 0, 0, 0.5); color: #fff; }
+        #top_header.fixed:hover #find_box { background-color: rgba(255, 255, 255, 0.5); }
+        #top_header.fixed:hover #nav { opacity: 1; }
+        #top_header.fixed #header { position: static; transform: translateX(0); width: 100%; }
+        #top_header.fixed #nav { position: static; transform: translateX(0); width: 100%; margin-top: 3rem; opacity: 0; }
+        #nav table td:hover { background-color: rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body>
+    <script> $(document).ready(function(){}); </script>
+
+    <!-- top_header Start -->
+    <div id="top_header">
+        <div class="inner">
+            <!-- header start -->
+            <header id="header">
+                <a href="/03_DaeSoSa/" id="logo">DaeSoSa</a>
+                <input type="text" value="동네 이름, 물품명 등을 검색해보세요!" name="find_box" id="find_box">
+                <div class="info_box">
+                    <a href="/03_DaeSoSa/03_include/login/" id="login">로그인</a>
+                    <a href="#" id="sign_up">회원가입</a>
+                </div>
+            </header>
+            <!-- header end -->
+
+            <!-- Nav start -->
+            <nav id="nav">
+                <table border="0"><tbody>
+                    <tr>
+                        <td onclick="JumpLink('nav_00')">
+                            <img src="/03_DaeSoSa/00_image/icon/icon_cloths.png" alt="category_cloths" />
+                            <p>의류</p>
+                        </td>
+                        <td onclick="JumpLink('nav_01')">
+                            <img src="/03_DaeSoSa/00_image/icon/icon_book.png" alt="category_book" />
+                            <p>서적</p>
+                        </td>
+                        <td onclick="JumpLink('nav_02')">
+                            <img src="/03_DaeSoSa/00_image/icon/icon_camp.png" alt="category_camp" />
+                            <p>캠핑</p>
+                        </td>
+                        <td onclick="JumpLink('nav_03')">
+                            <img src="/03_DaeSoSa/00_image/icon/icon_tool_02.png" alt="category_tool" />
+                            <p>공구</p>
+                        </td>
+                        <td onclick="JumpLink('nav_04')">
+                            <img src="/03_DaeSoSa/00_image/icon/icon_exercise.png" alt="category_exercise" />
+                            <p>운동</p>
+                        </td>
+                        <td onclick="JumpLink('nav_05')">
+                            <img src="/03_DaeSoSa/00_image/icon/icon_game.png" alt="category_game" />
+                            <p>보드게임</p>
+                        </td>
+                        <td onclick="JumpLink('nav_06')">
+                            <img src="/03_DaeSoSa/00_image/icon/icon_etc.png" alt="category_etc" />
+                            <p>기타</p>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </nav>
+            <!-- Nav end -->
+        </div>
+    </div>
+    <!-- Top_header End -->
+
+    <!-- js -->
+    <script src="/03_DaeSoSa/02_js/main.js"></script>
+</body>
+</html>

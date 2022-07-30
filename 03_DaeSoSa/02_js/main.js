@@ -1,6 +1,6 @@
 // 카테고리 링크
 function JumpLink(str){
-    location.href = '/03_include/'+str+'/';
+    location.href = '/03_DaeSoSa/03_include/'+str+'/';
 };
 
 // resize event
@@ -26,10 +26,9 @@ $('#top_header').hover(function(){
     }else{}
 });
 
-// 텍스트 클릭 시 안내 문 삭제 
+// 텍스트 박스 클릭 시 안내 문 삭제 
 $('#find_box').on('focus focusout',function(){
     text_box('#find_box', 0);
-    console.log('hello');
 });
 
 $('#id_box').on('focus focusout',function(){
@@ -50,11 +49,8 @@ $('.tab_menu').on('click','li',function(){
 
 
 
-
-
-
 // 배너
-var Swiper_banner = new Swiper('#banner .swiper-container',{
+var swiper_opt = {
     slidesPerView: "auto",
     effect: "fade",
     loop: true,
@@ -66,7 +62,8 @@ var Swiper_banner = new Swiper('#banner .swiper-container',{
         el: "#banner .swiper-pagination",
         clickable: true,
     },
-});
+};
+var Main_banner = new Swiper('#banner .swiper-container', swiper_opt);
 
 // resize event
 function resize_e(e){   
@@ -106,18 +103,6 @@ function header_hover(ms){
     }
 }
 
-
-// tab menu click event
-function tab_menu(i, name, tab_n){
-    // tab list 효과
-    $('#'+name).find('.tab_menu').children('li').removeClass('on'); // 해당 tab content에서 tab menu list 효과 종료
-    $(tab_n).addClass('on'); // 해당 list 효과만 적용
-
-    // tab item box 교체
-    $('#'+name).find('.item_box').removeClass('on');
-    $('#'+name).find('.item_box').eq(i).addClass('on');
-}
-
 // 찾기 텍스트 event
 function text_box(name, num){
     var box_val = $(name).val();
@@ -143,6 +128,17 @@ function text_box(name, num){
             $(name).prop('type','text');
         }else{}
     } 
+}
+
+// tab menu click event
+function tab_menu(i, name, tab_n){
+    // tab list 효과
+    $('#'+name).find('.tab_menu').children('li').removeClass('on'); // 해당 tab content에서 tab menu list 효과 종료
+    $(tab_n).addClass('on'); // 해당 list 효과만 적용
+
+    // tab item box 교체
+    $('#'+name).find('.item_box').removeClass('on');
+    $('#'+name).find('.item_box').eq(i).addClass('on');
 }
 
 

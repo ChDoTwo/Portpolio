@@ -1,0 +1,53 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+/* css reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+*::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+ol, ul, li { list-style: none; }
+a { text-decoration: none; color: inherit; cursor: pointer; }
+html, body { font-size: 10px; background-color: #fff; }
+img { display: block; width: 100%; }
+:root {
+    --product--spacing: 2rem; 
+    --product--count: 5;
+}
+ 
+
+/* 공통 */
+.content_area { width: 100%; margin-top: 23rem; }
+.content { width: 100%; margin-bottom: 15rem; }
+.inner { width: 60%; margin: 0 auto; }
+h2.content_title { font-size: 3rem; font-weight: 700; }
+p.content_sub_title { font-size: 1.6rem; margin-top: 2rem; }
+
+/************* Content area */
+/* Banner */
+.banner_basic .swiper-container { position: relative; height: 55rem; overflow: hidden; }
+.banner_basic .swiper-slide { width: 100%; height: 100%; font-size: 5rem; font-weight: 700; text-align: center; }
+.banner_basic .swiper-slide[data-num="1"] { background-color: red; }
+.banner_basic .swiper-slide[data-num='2'] { background-color: orange; }
+.banner_basic .swiper-slide[data-num='3'] { background-color: yellow; }
+.banner_basic .swiper-slide[data-num='4'] { background-color: green; }
+.banner_basic .swiper-slide[data-num='5'] { background-color: blue; }
+.banner_basic .swiper-slide[data-num='6'] { background-color: purple; }
+.banner_basic .swiper-pagination-bullet-active { background-color: #fff; }
+
+/* category */
+#category table { width: 100%; background-color: #000; border: 1px solid #f9f0f8; color: #fff; text-align: center; }
+#category table tr td { padding: 2rem 0; font-size: 1.4rem; cursor: pointer; }
+
+/* products */
+#products .product_pic { width: 100%; height: 20rem; background-color: lightskyblue; }
+#products ul { width: auto; margin: 0 auto; }
+#products ul li { display: inline-block; 
+
+    width: calc(20% - (var(--product--spacing) * (var(--product--count) - 1) / var(--product--count)) ); margin: 0 var(--product--spacing) 10rem -1px; cursor: pointer; 
+}
+#products ul li:nth-child(5n) { margin-right: 0; }
+
+#products h2.title { margin-top: 1rem; font-size: 1.6rem; }
+#products h3.address { margin: 0.5rem 0 2rem; font-size: 1.2rem; font-weight: 400; opacity: 0.6; }
+#products div.info { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+#products p.price { font-size: 1.5rem; }
+#products p.attention { font-size: 1.2rem; opacity: 0.6; }

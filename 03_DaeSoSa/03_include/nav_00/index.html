@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css -->
+    <link href="/03_DaeSoSa/01_css/sub_style.css" rel="stylesheet">
+    
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <!-- Header Start -->
+   <div id="header_area"></div>
+   <script type="text/javascript">
+        $(document).ready(function(){
+            $('#header_area').load('/03_DaeSoSa/03_include/header.html');
+        });
+   </script>
+   <!-- Header End -->
+
+
+   <div class="content_area">
+        <div class="inner">
+            <!-- Banner Start -->
+            <section id="sub_banner_00" class="content banner_basic">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div data-num="1" class="swiper-slide">BANNER 00_01</div>
+                        <div data-num="2" class="swiper-slide">BANNER 00_02</div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+            <!-- Banner End -->
+
+            <!-- Category Start -->
+            <section id="category" class="content">
+                <table><tbody><tr>
+                    <td>전체보기</td>
+                    <td>Category1</td>
+                    <td>Category2</td>
+                    <td>Category3</td>
+                    <td>Category4</td>
+                </tr></tbody></table>
+            </section>
+            <!-- Category End -->
+
+            <!-- products start -->
+            <section id="products" class="content">
+                <ul id="itemlist"><li id="firstitem"><div class="product_pic"></div>
+                        <h2 class="title">야외용 철제 테이블</h2>
+                        <h3 class="address">서울 서초구 반포 4동</h3>
+                        <div class="info">
+                            <p class="price">30,000원</p>
+                            <p class="attention">관심 24</p>
+                        </div></li></ul>
+            </section>
+            <!-- products End -->
+        </div>
+   </div>
+
+    <!-- js -->
+    <script src="/03_DaeSoSa/02_js/swiper.js"></script>
+</body>
+</html>
