@@ -9,8 +9,10 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 html, body { font-size: 10px; background-color: #fff; }
 img { display: block; width: 100%; }
 :root {
-    --product--spacing: 2rem; 
-    --product--count: 5;
+    --product--height: 30rem;
+    --product--margin-bottom: 20rem;
+    --product--spacing: 5rem; 
+    --product--count: 3;
 }
  
 
@@ -38,16 +40,18 @@ p.content_sub_title { font-size: 1.6rem; margin-top: 2rem; }
 #category table tr td { padding: 2rem 0; font-size: 1.4rem; cursor: pointer; }
 
 /* products */
-#products .product_pic { width: 100%; height: 20rem; background-color: lightskyblue; }
+#products .product_pic { width: 100%; height: var(--product--height); background-color: lightskyblue; }
 #products ul { width: auto; margin: 0 auto; }
 #products ul li { display: inline-block; 
-
-    width: calc(20% - (var(--product--spacing) * (var(--product--count) - 1) / var(--product--count)) ); margin: 0 var(--product--spacing) 10rem -1px; cursor: pointer; 
+    width: 
+    calc(((var(--product--count) * 100%) / (var(--product--count) * var(--product--count))) /* product 갯수에 따른 넓이 계산 */
+    - (var(--product--spacing) * (var(--product--count) - 1) / var(--product--count)) ); /* spacing 총 값 계산 */
+    margin: 0 var(--product--spacing) var(--product--margin-bottom) -1px; cursor: pointer; 
 }
-#products ul li:nth-child(5n) { margin-right: 0; }
+#products ul li:nth-child(3n) { margin-right: 0; }
 
-#products h2.title { margin-top: 1rem; font-size: 1.6rem; }
-#products h3.address { margin: 0.5rem 0 2rem; font-size: 1.2rem; font-weight: 400; opacity: 0.6; }
+#products h2.title { margin-top: 1rem; font-size: 2.2rem; }
+#products h3.address { margin: 0.8rem 0 3rem; font-size: 1.5rem; font-weight: 400; opacity: 0.6; }
 #products div.info { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-#products p.price { font-size: 1.5rem; }
-#products p.attention { font-size: 1.2rem; opacity: 0.6; }
+#products p.price { font-size: 2.1rem; }
+#products p.attention { font-size: 1.4rem; opacity: 0.6; }

@@ -27,16 +27,9 @@ $('#top_header').hover(function(){
 });
 
 // 텍스트 박스 클릭 시 안내 문 삭제 
-$('#find_box').on('focus focusout',function(){
-    text_box('#find_box', 0);
-});
-
-$('#id_box').on('focus focusout',function(){
-    text_box('#id_box', 1);
-});
-
-$('#pw_box').on('focus focusout',function(){
-    text_box('#pw_box', 2);
+$('#find_box, #id_box, #pw_box').on('focus focusout',function(){
+    var n = $(this).attr('id');
+    text_box(n);
 });
 
 // tab menu click event
@@ -49,7 +42,11 @@ $('.tab_menu').on('click','li',function(){
 
 
 
-// 배너
+
+
+
+
+// swiper
 var swiper_opt = {
     slidesPerView: "auto",
     effect: "fade",
@@ -59,11 +56,18 @@ var swiper_opt = {
         disableOnInteraction: false,
     },
     pagination: {
-        el: "#banner .swiper-pagination",
+        el: ".content .swiper-pagination",
         clickable: true,
     },
 };
 var Main_banner = new Swiper('#banner .swiper-container', swiper_opt);
+var sub_banner_00 = new Swiper('#sub_banner_00 .swiper-container', swiper_opt);
+var sub_banner_01 = new Swiper('#sub_banner_01 .swiper-container', swiper_opt);
+var sub_banner_02 = new Swiper('#sub_banner_02 .swiper-container', swiper_opt);
+var sub_banner_03 = new Swiper('#sub_banner_03 .swiper-container', swiper_opt);
+var sub_banner_04 = new Swiper('#sub_banner_04 .swiper-container', swiper_opt);
+var sub_banner_05 = new Swiper('#sub_banner_05 .swiper-container', swiper_opt);
+var sub_banner_06 = new Swiper('#sub_banner_06 .swiper-container', swiper_opt);
 
 // resize event
 function resize_e(e){   
@@ -78,12 +82,18 @@ function scroll_e(e){
     if(win_w > 768){
         if(win_t > content_h){ // header fixed 설정
             header_scroll = true;
-            $('#top_header').addClass('fixed');
-            $('#nav').removeAttr('style');
+            if($('#top_header').hasClass('fixed')){
+            } else {
+                $('#top_header').addClass('fixed');
+                $('#nav').removeAttr('style');
+            }
+            
         }else{
             header_scroll = false;
-            $('#top_header').removeClass('fixed');
-            $('#nav').removeAttr('style');
+            if($('#top_header').hasClass('fixed')){
+                $('#top_header').removeClass('fixed');
+                $('#nav').removeAttr('style');
+            } else {}
         }
     }else{
 
@@ -104,30 +114,26 @@ function header_hover(ms){
 }
 
 // 찾기 텍스트 event
-function text_box(name, num){
+function text_box(id_n){
+    var name = "#" + id_n;
     var box_val = $(name).val();
+    
 
-    if(num == 0){ // find
-        if(box_val == '동네 이름, 물품명 등을 검색해보세요!'){
-            $(name).val('');
-        }else if(box_val == ''){
+    if(box_val == '동네 이름, 물품명 등을 검색해보세요!' || box_val == 'ID'){
+        $(name).val('');
+    }else if(box_val == 'PASSWORD'){
+        $(name).prop('type','password');
+        $(name).val('');
+    }else if(box_val == ''){
+        if(name == '#find_box'){
             $(name).val('동네 이름, 물품명 등을 검색해보세요!');
-        }else{}
-    }else if(num == 1){ // id
-        if(box_val == 'ID'){
-            $(name).val('');
-        }else if(box_val == ''){
+        }else if(name == '#id_box'){
             $(name).val('ID');
-        }else{}
-    }else if(num == 2){
-        if(box_val == 'PASSWORD'){
-            $(name).val('');
-            $(name).prop('type','password');
-        }else if(box_val == ''){
+        }else if(name == '#pw_box'){
             $(name).val('PASSWORD');
             $(name).prop('type','text');
-        }else{}
-    } 
+        }
+    }
 }
 
 // tab menu click event
@@ -166,4 +172,10 @@ function reset_opt(){ // 첫 상태
 
 
     $('html').animate({scrollTop:'0'},400); // 맨 위로 이동
+}
+
+
+/* product copy */
+for(var i=0; i<49; i++){
+    $('#products ul li').eq(0).clone().appendTo('#products ul');
 }
