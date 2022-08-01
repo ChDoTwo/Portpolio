@@ -176,6 +176,9 @@ function reset_opt(){ // 첫 상태
 
 
 /* product copy */
-for(var i=0; i<49; i++){
+for(var i=0; i<30; i++){
     $('#products ul li').eq(0).clone().appendTo('#products ul');
+    $('#products_4 ul li').eq(0).clone().appendTo('#products_4 ul');
+    $('#products_5 ul li').eq(0).clone().appendTo('#products_5 ul');
+
 }
