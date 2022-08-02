@@ -82,18 +82,12 @@ function scroll_e(e){
     if(win_w > 768){
         if(win_t > content_h){ // header fixed 설정
             header_scroll = true;
-            if($('#top_header').hasClass('fixed')){
-            } else {
-                $('#top_header').addClass('fixed');
-                $('#nav').removeAttr('style');
-            }
-            
+            $('#top_header').addClass('fixed');
+            $('#nav').stop().slideUp(0);
         }else{
             header_scroll = false;
-            if($('#top_header').hasClass('fixed')){
-                $('#top_header').removeClass('fixed');
-                $('#nav').removeAttr('style');
-            } else {}
+            $('#top_header').removeClass('fixed');
+            $('#nav').stop().slideDown(0);
         }
     }else{
 
@@ -104,12 +98,9 @@ function scroll_e(e){
 // header hover event
 function header_hover(ms){
     if(ms == true){ // 마우스 올린 상태
-        $('#top_header').addClass('fixed');
-        $('#nav').removeAttr('style');
-        $('#nav').stop().slideDown(0);
+        $('#nav').stop().slideDown(400);
     }else{ // 마우스 땐 상태
-        $('#nav').removeAttr('style');
-        $('#nav').stop().slideUp(200);
+        $('#nav').stop().slideUp(400);
     }
 }
 
